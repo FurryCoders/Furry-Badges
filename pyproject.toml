@@ -9,6 +9,7 @@ license = "EUPL-1.2"
 python = "^3.10"
 fastapi = "^0.72.0"
 requests = "^2.27.1"
+uvicorn = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
 
