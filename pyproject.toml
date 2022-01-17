@@ -10,6 +10,7 @@ python = "3.10.1"
 fastapi = "^0.72.0"
 requests = "^2.27.1"
 uvicorn = "^0.17.0"
+orjson = "^3.6.5"
 
 [tool.poetry.dev-dependencies]
 
