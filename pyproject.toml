@@ -6,7 +6,7 @@ authors = ["Matteo Campinoti <matteo.campinoti94@gmail.com>"]
 license = "EUPL-1.2"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.10.1"
 fastapi = "^0.72.0"
 requests = "^2.27.1"
 uvicorn = "^0.17.0"
