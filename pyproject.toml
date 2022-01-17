@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "furaffinity-badge"
+version = "1.0.0"
+description = "Create badges for FurAffinity users using the Shields.io API."
+authors = ["Matteo Campinoti <matteo.campinoti94@gmail.com>"]
+license = "EUPL-1.2"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.72.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
