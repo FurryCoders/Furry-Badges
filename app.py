@@ -5,6 +5,7 @@ import requests
 from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import ORJSONResponse
+from fastapi.responses import RedirectResponse
 from fastapi.responses import Response
 
 root_folder: Path = Path(__file__).parent
@@ -13,6 +14,8 @@ static_folder: Path = root_folder / "static"
 app: FastAPI = FastAPI(servers=[{"url": "https://furaffinity-badge.herokuapp.com"}],
                        license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
                        docs_url=None, redoc_url=None)
+
+app.add_route("/", lambda r: RedirectResponse("https://github.com/FurryCoders/furaffinity-badge"), ["GET"])
 
 badge: dict[str, str | int] = {
     "schemaVersion": 1,
