@@ -15,7 +15,7 @@ app: FastAPI = FastAPI(servers=[{"url": "https://furaffinity-badge.herokuapp.com
                        license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
                        docs_url=None, redoc_url=None)
 
-app.add_route("/", lambda r: RedirectResponse("https://github.com/FurryCoders/furaffinity-badge"), ["GET"])
+app.add_route("/", lambda r: RedirectResponse("https://github.com/MatteoCampinoti94/furaffinity-badge"), ["GET"])
 
 badge: dict[str, str | int] = {
     "schemaVersion": 1,
