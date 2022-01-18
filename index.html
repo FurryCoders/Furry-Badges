@@ -8,10 +8,12 @@
     <script>
         const $ = (id) => document.getElementById(id)
         const updateBadge = () => {
-            const site = $("site").value, label = $("label").value, username = $("username").value
+            const site = $("site").value.trim()
+            const label = $("label").value.trim()
+            const username = $("username").value.trim()
             let url = ""
-            if (site.length * username.length === 0) url = ""
-            else url = `https://furry-badges.herokuapp.com/badge/user/${site}/${username}?label=${$("noLabel").checked ? "" : (label || site)}`
+            if (username.length === 0) url = ""
+            else url = `https://furry-badges.herokuapp.com/badge/user/${site}/${encodeURIComponent(username)}?label=${$("noLabel").checked ? "+" : encodeURIComponent(label || site)}`
             $("badge").src = url
             $("badgeURL").href = url
             $("examples").hidden = url.length === 0
