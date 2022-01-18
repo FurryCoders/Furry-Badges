@@ -5,17 +5,12 @@ import requests
 from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import ORJSONResponse
-from fastapi.responses import RedirectResponse
 from fastapi.responses import Response
+from fastapi.templating import Jinja2Templates
 
 root_folder: Path = Path(__file__).parent
 logos_folder: Path = root_folder / "static" / "logos"
-
-app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
-                       license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
-                       docs_url=None, redoc_url=None)
-
-app.add_route("/", lambda r: RedirectResponse("https://gitlab.com/projects/32921925"), ["GET"])
+templates: Jinja2Templates = Jinja2Templates(str(root_folder))
 
 badge: dict[str, str | int] = {
     "schemaVersion": 1,
@@ -28,7 +23,14 @@ colors: dict[str, tuple[str, str]] = {
     "fa": ("#151718", "#FAAF3A"),
     "weasyl": ("#1D2224", "#990000")
 }
+
 logos: dict[str, str] = {p.name.removesuffix(".svg"): p.read_text() for p in logos_folder.iterdir()}
+
+app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
+                       license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
+                       docs_url=None, redoc_url=None)
+
+app.add_route("/", lambda r: templates.TemplateResponse("index.html", {"request": r, "sites": [*logos.keys()]}), ["GET"])
 
 
 @cache
