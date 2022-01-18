@@ -17,7 +17,6 @@ app: FastAPI = FastAPI(servers=[{"url": "https://furaffinity-badge.herokuapp.com
 
 app.add_route("/", lambda r: RedirectResponse("https://github.com/MatteoCampinoti94/furaffinity-badge"), ["GET"])
 
-
 badge: dict[str, str | int] = {
     "schemaVersion": 1,
     "label": "FurAffinity",
@@ -40,10 +39,11 @@ def get_badge(endpoint: str, **params) -> Response:
     )
 
 
-@app.get("/badge/endpoint/", response_class=ORJSONResponse)
 @app.get("/badge/endpoint/{site}/{username}", response_class=ORJSONResponse)
-def badge_endpoint(request: Request, site: str = None, username: str = None):
-    return badge | {"message": username or badge["message"], "logoSvg": logos[site.lower()]} | {**request.query_params}
+def badge_endpoint(site: str, username: str):
+    return badge | \
+           {"message": username or badge["message"]} | \
+           {"logoSvg": logos[site]} if (site := site.lower()) in logos else {}
 
 
 @app.get("/badge/user/{site}/{username}", response_class=Response)
