@@ -61,6 +61,6 @@ def badge_endpoint(site: str, username: str, label: str = None):
 @app.get("/badge/user/{site}/{username}/{label}/", response_class=Response)
 def badge_user(request: Request, site: str, username: str, label: str = None):
     return get_badge(app.servers[0]["url"] +
-                     app.url_path_for(badge_endpoint.__name__, site=site, username=username,
-                                      **({"label": label} if label else {})),
+                     app.url_path_for(badge_endpoint.__name__, site=site, username=username.replace(" ", "%20"),
+                                      **({"label": label.replace(" ", "%20")} if label else {})),
                      **request.query_params)
