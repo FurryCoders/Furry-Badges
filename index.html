@@ -16,6 +16,7 @@
 
         code, code * {
             font-family: monospace;
+            font-size: min(2.5vw, 100%);
         }
     </style>
     <script>
@@ -48,7 +49,7 @@
                 <select id="site" onchange="updateBadge()">
                     <option value="" disabled hidden selected>Select site</option>
                     {% for site in sites %}
-                        <option value="{{ site }}">{{ site }}</option>
+                    <option value="{{ site }}" selected>{{ site }}</option>
                     {% endfor %}
                 </select>
                 <label>Site</label>
@@ -66,7 +67,7 @@
                 </label>
             </div>
             <div class="mui-textfield">
-                <input id="username" type="text"
+                <input id="username" type="text" value="Fox"
                        oninput="updateBadge()">
                 <label>Username</label>
             </div>
@@ -78,19 +79,19 @@
         <br><br>
         <div id="examples">
             <div class="mui--text-subhead">Markdown</div>
-            <code>
+            <div style="background: #F3F3F3"><code>
                 ![](<span class="badgeURLText"></span>)
-            </code>
+            </code></div>
             <br><br>
             <div class="mui--text-subhead">AsciiDoc</div>
-            <code>
+            <div style="background: #F3F3F3"><code>
                 image::<span class="badgeURLText"></span>[]
-            </code>
+            </code></div>
             <br><br>
             <div class="mui--text-subhead">reStructuredText</div>
-            <code>
+            <div style="background: #F3F3F3"><code>
                 .. image:: <span class="badgeURLText"></span>
-            </code>
+            </code></div>
         </div>
     </div>
 </div>
