@@ -11,11 +11,11 @@ For example: `https://furry-badges.herokuapp.com/badge/user/FurAffinity/FlameOfF
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
-| Site         | Site Code            | Logo                                                                                                                                                                                             |
-|:-------------|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Generic paw  | `paw`                | [![](https://furry-badges.herokuapp.com/badge/user/Paw/Logo)](https://furry-badges.herokuapp.com/badge/user/Paw/Logo)                                                                            |
-| Fur Affinity | `furaffinity` / `fa` | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo) ![](https://furry-badges.herokuapp.com/badge/user/FA/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo) |
-| Weasyl       | `weasyl`             | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/FA/Logo)                                                                          |
+| Site         | Site Code            | Logo                                                                                                                                                                                                                                                      |
+|:-------------|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Generic paw  | `paw`                | [![](https://furry-badges.herokuapp.com/badge/user/Paw/Logo)](https://furry-badges.herokuapp.com/badge/user/Paw/Logo)                                                                                                                                     |
+| Fur Affinity | `furaffinity` / `fa` | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo) [![](https://furry-badges.herokuapp.com/badge/user/FA/Logo)](https://furry-badges.herokuapp.com/badge/user/FA/Logo) |
+| Weasyl       | `weasyl`             | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)                                                                                                                               |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.<br/>
 _Note_: using the `label` query parameter does not override the log and color.
