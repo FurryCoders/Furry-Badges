@@ -26,11 +26,11 @@
             const username = $("username").value.trim()
             let url = ""
             if (username.length === 0) url = ""
-            else url = `https://furry-badges.herokuapp.com/badge/user/${site}/${encodeURIComponent(username)}?label=${$("noLabel").checked ? "+" : encodeURIComponent(label || site)}`
+            else url = `/badge/user/${site}/${encodeURIComponent(username)}?label=${$("noLabel").checked ? "+" : encodeURIComponent(label || site)}`
             $("badge").src = url
             $("badgeURL").href = url
             $("examples").hidden = url.length === 0
-            Array.from(document.getElementsByClassName("badgeURLText")).forEach(elem => elem.innerText = url)
+            Array.from(document.getElementsByClassName("badgeURLText")).forEach(elem => elem.innerText = "https://furry-badges.herokuapp.com" + url)
         }
 
         window.onload = () => updateBadge()
