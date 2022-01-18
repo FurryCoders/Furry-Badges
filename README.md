@@ -18,7 +18,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | Weasyl       | `weasyl`             | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)                                                                                                                               |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.<br/>
-_Note_: using the `label` query parameter does not override the log and color.
+_Note_: using the `label` query parameter does not override the logo and color.
 
 The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
 backend for the username).
