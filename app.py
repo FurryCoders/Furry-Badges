@@ -40,11 +40,11 @@ def get_badge(endpoint: str, **params) -> Response:
 
 @app.get("/badge/endpoint/", response_class=ORJSONResponse)
 @app.get("/badge/endpoint/{username}", response_class=ORJSONResponse)
-def badge_endpoint(username: str = None):
-    return badge | {"message": username or badge["message"]}
+def badge_endpoint(request: Request, username: str = None):
+    return badge | {"message": username or badge["message"]} | request.query_params
 
 
 @app.get("/badge/user/{username}", response_class=Response)
-def badge_user(request: Request, username: str = ""):
+def badge_user(request: Request, username: str):
     return get_badge(app.servers[0]["url"] + app.url_path_for(badge_endpoint.__name__, username=username),
                      **request.query_params)
