@@ -1,4 +1,4 @@
-# Fur Affinity Badge
+# Furry Badges
 
 Create badges for FurAffinity users using the Shields.io API.
 
