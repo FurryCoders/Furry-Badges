@@ -1,13 +1,18 @@
 # Furry Badges
 
-Create badges for FurAffinity users using the Shields.io API.
+Create badges for FurAffinity users using the [Shields.io](https://shields.io) API.
+
+Build your own badge online [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
 
 ## User Badge
 
-To create a user badge, use the `/badge/{site}/{username}` route.
+To create a user badge, use the `/badge/{site}/{username}` and `/badge/{site}/{username}/{label}` routes.
 
-For example: `https://furry-badges.herokuapp.com/badge/user/FurAffinity/User`
--> [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/User)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/User)
+For example: `https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA`
+-> [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)
+
+The label can be specified either in the path, or using the `?label` query parameter. The latter will override the path
+value.
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
@@ -18,7 +23,6 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | Weasyl       | `weasyl`      | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)           |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.<br/>
-_Note_: using the `label` query parameter does not override the logo and color.
 
 The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
 backend for the username).
