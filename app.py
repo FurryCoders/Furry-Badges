@@ -48,7 +48,7 @@ def get_badge(endpoint: str, **params) -> Response:
 @app.get("/badge/endpoint/{site}/{username}/{label}/", response_class=ORJSONResponse)
 def badge_endpoint(site: str, username: str, label: str = None):
     site_: str = site.lower()
-    badge_label: dict = {"label": label or site_, "message": username}
+    badge_label: dict = {"label": label or site, "message": username}
     badge_colors: dict = {"labelColor": colors[site_][0], "color": colors[site_][1]} if site_ in colors else {}
     badge_logo: dict = {"logoSvg": logos[site_]} if site_ in logos else {}
     return badge_template | badge_label | badge_colors | badge_logo
