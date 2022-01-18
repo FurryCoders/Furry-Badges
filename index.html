@@ -14,9 +14,14 @@
             font-size: 100%;
         }
 
-        code, code * {
+        code {
             font-family: monospace;
-            font-size: min(2.5vw, 100%);
+            font-size: 100%;
+        }
+
+        code * {
+            font-family: inherit;
+            font-size: inherit;
         }
     </style>
     <script>
@@ -28,13 +33,23 @@
             let url = ""
             if (site.length * username.length === 0) url = ""
             else url = `/badge/user/${site}/${encodeURIComponent(username)}/${label}` + ($("noLabel").checked ? "?label=+" : "")
-            $("badge").src = url
-            $("badgeURL").href = url
-            $("examples").hidden = url.length === 0
-            Array.from(document.getElementsByClassName("badgeURLText")).forEach(elem => elem.innerText = "https://furry-badges.herokuapp.com" + url)
+            $("badge").src = $("badgeURL").href = url
+            $("badgeContainer").hidden = $("examples").hidden = url.length === 0
+            Array.from(document.getElementsByClassName("badgeURLText")).forEach(elem => {
+                elem.innerText = "https://furry-badges.herokuapp.com" + url
+                fitElem(elem.parentElement, elem.parentElement.parentElement)
+            })
+        }
+        const fontSize = (elem) => Number(/([0-9]+(?:\.[0-9]+)?)%/.exec(elem.style.fontSize || "100%")[1])
+        const fitElem = (elem, elemParent) => {
+            const width = elemParent.offsetWidth
+            elem.style.fontSize = elem.style.fontSize || "100%"
+            while (elem.offsetWidth < width && fontSize(elem) < 100) elem.style.fontSize = `${fontSize(elem) + 0.5}%`
+            while (elem.offsetWidth > width && fontSize(elem) > 1) elem.style.fontSize = `${fontSize(elem) - 0.5}%`
         }
 
         window.onload = () => updateBadge()
+        window.onresize = () => document.querySelectorAll("#examples > code").forEach(elem => fitElem(elem, elem.parentElement))
     </script>
 </head>
 <body>
@@ -73,7 +88,7 @@
             </div>
         </form>
         <br><br>
-        <div style="text-align: center">
+        <div id="badgeContainer" style="text-align: center; cursor: pointer !important;">
             <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
         </div>
         <br><br>
