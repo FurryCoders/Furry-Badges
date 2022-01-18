@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Furry Badges</title>
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet" type="text/css"/>
     <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <style>
+        body {
+            font-family: Rubik, -apple-system, sans-serif;
+        }
+    </style>
     <script>
         const $ = (id) => document.getElementById(id)
         const updateBadge = () => {
@@ -25,10 +33,15 @@
 </head>
 <body>
 <div style="max-width: 600px; margin: auto">
+    <br><br>
+    <a href="https://gitlab.com/projects/32921925"><img
+            src="https://img.shields.io/badge/Source-GitLab-orange?logo=gitlab" alt=""></a>
+    <br><br>
     <form class="mui-form">
-        <legend>Furry Badges</legend>
+        <legend color="var(--color)">Furry Badges</legend>
         <div class="mui-select">
             <select id="site" onchange="updateBadge()">
+                <option value="" disabled hidden selected>Select site</option>
                 {% for site in sites %}
                     <option value="{{ site }}">{{ site }}</option>
                 {% endfor %}
