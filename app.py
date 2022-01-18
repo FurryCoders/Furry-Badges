@@ -20,7 +20,6 @@ badge: dict[str, str | int] = {
 
 colors: dict[str, tuple[str, str]] = {
     "furaffinity": ("#151718", "#FAAF3A"),
-    "fa": ("#151718", "#FAAF3A"),
     "weasyl": ("#1D2224", "#990000")
 }
 
