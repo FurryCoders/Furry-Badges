@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "furaffinity-badge"
+name = "furry-badges"
 version = "1.0.0"
 description = "Create badges for FurAffinity users using the Shields.io API."
 authors = ["Matteo Campinoti <matteo.campinoti94@gmail.com>"]

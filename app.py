@@ -11,7 +11,7 @@ from fastapi.responses import Response
 root_folder: Path = Path(__file__).parent
 logos_folder: Path = root_folder / "static" / "logos"
 
-app: FastAPI = FastAPI(servers=[{"url": "https://furaffinity-badge.herokuapp.com"}],
+app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
                        license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
                        docs_url=None, redoc_url=None)
 
