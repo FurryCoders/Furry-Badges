@@ -19,6 +19,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | Site         | Site Code     | Logo                                                                                                                                  |
 |:-------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------|
 | Generic paw  | `furry`       | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)             |
+| e621         | `e621`        | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)               |
 | Fur Affinity | `furaffinity` | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo) |
 | Weasyl       | `weasyl`      | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)           |
 
