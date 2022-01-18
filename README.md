@@ -16,12 +16,13 @@ value.
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
-| Site         | Site Code     | Logo                                                                                                                                  |
-|:-------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| Generic paw  | `furry`       | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)             |
-| e621         | `e621`        | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)               |
-| Fur Affinity | `furaffinity` | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo) |
-| Weasyl       | `weasyl`      | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)           |
+| Site          | Site Code      | Logo                                                                                                                                    |
+|:--------------|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------|
+| Generic paw   | `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)               |
+| e621          | `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                 |
+| Fur Affinity  | `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)   |
+| Furry Network | `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/FurryNetwork/Logo)](https://furry-badges.herokuapp.com/badge/user/FurryNetwork/Logo) |
+| Weasyl        | `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)             |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.<br/>
 

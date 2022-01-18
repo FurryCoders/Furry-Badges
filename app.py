@@ -21,6 +21,7 @@ badge_template: dict[str, str | int] = {
 colors: dict[str, tuple[str, str]] = {
     "e621": ("#FDBE2F", "#00549E"),
     "furaffinity": ("#151718", "#FAAF3A"),
+    "furrynetwork": ("#FFFFFF", "#2E76B4"),
     "weasyl": ("#1D2224", "#990000")
 }
 
