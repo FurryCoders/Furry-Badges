@@ -27,7 +27,7 @@
             const username = $("username").value.trim()
             let url = ""
             if (username.length === 0) url = ""
-            else url = `/badge/user/${site}/${encodeURIComponent(username)}?label=${$("noLabel").checked ? "+" : encodeURIComponent(label || site)}`
+            else url = `/badge/user/${site}/${encodeURIComponent(username)}/${label}` + ($("noLabel").checked ? "?label=+" : "")
             $("badge").src = url
             $("badgeURL").href = url
             $("examples").hidden = url.length === 0
