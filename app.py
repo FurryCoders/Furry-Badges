@@ -1,4 +1,3 @@
-from functools import cache
 from pathlib import Path
 
 import requests
@@ -33,7 +32,9 @@ app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
                        docs_url=None, redoc_url=None)
 
 app.add_route("/",
-              lambda r: templates.TemplateResponse("index.html", {"request": r, "sites": sorted(logos.keys())}),
+              lambda r: templates.TemplateResponse("index.html",
+                                                   {"request": r,
+                                                    "sites": sorted(set(logos.keys()).union(colors.keys()))}),
               ["GET"])
 
 
