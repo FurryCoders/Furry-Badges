@@ -21,10 +21,13 @@ badge: dict[str, str | int] = {
     "schemaVersion": 1,
     "label": "Furry",
     "message": "Badge",
-    "color": "#FAAF3A",
-    "labelColor": "#151718",
 }
 
+colors: dict[str, tuple[str, str]] = {
+    "furaffinity": ("#151718", "#FAAF3A"),
+    "fa": ("#151718", "#FAAF3A"),
+    "weasyl": ("#1D2224", "#990000")
+}
 logos: dict[str, str] = {p.name.removesuffix(".svg"): p.read_text() for p in logos_folder.iterdir()}
 
 
@@ -41,9 +44,10 @@ def get_badge(endpoint: str, **params) -> Response:
 
 @app.get("/badge/endpoint/{site}/{username}", response_class=ORJSONResponse)
 def badge_endpoint(username: str, site: str = None):
-    return badge | \
-           {"label": site, "message": username} | \
-           {"logoSvg": logos[site]} if (site := site.lower()) in logos else {}
+    site: str = site.lower()
+    badge_colors: dict = {"labelColor": colors[site][0], "color": colors[site][1]} if site in colors else {}
+    badge_logo: dict = {"logoSvg": logos[site]} if site in logos else {}
+    return badge | {"label": site, "message": username} | badge_colors | badge_logo
 
 
 @app.get("/badge/user/{site}/{username}", response_class=Response)
