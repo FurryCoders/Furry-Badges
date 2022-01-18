@@ -34,7 +34,6 @@ app.add_route("/",
               ["GET"])
 
 
-@cache
 def get_badge(endpoint: str, **params) -> Response:
     res: requests.Response = requests.request("GET", f"https://img.shields.io/endpoint",
                                               params={"url": endpoint} | params)
