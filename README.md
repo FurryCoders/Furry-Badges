@@ -27,4 +27,4 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## JSON Endpoint
 
-The `/badge/endpoint/` and `/badge/endpoint/{site}/{username}` routes are used as endpoints for the Shields.io API.
+The `/badge/endpoint/{site}/{username}` route is used as endpoint for the Shields.io API.
