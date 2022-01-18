@@ -19,7 +19,7 @@ app.add_route("/", lambda r: RedirectResponse("https://github.com/MatteoCampinot
 
 badge: dict[str, str | int] = {
     "schemaVersion": 1,
-    "label": "FurAffinity",
+    "label": "Furry",
     "message": "Badge",
     "color": "#FAAF3A",
     "labelColor": "#151718",
@@ -40,9 +40,9 @@ def get_badge(endpoint: str, **params) -> Response:
 
 
 @app.get("/badge/endpoint/{site}/{username}", response_class=ORJSONResponse)
-def badge_endpoint(site: str, username: str):
+def badge_endpoint(username: str, site: str = None):
     return badge | \
-           {"message": username or badge["message"]} | \
+           {"label": site, "message": username} | \
            {"logoSvg": logos[site]} if (site := site.lower()) in logos else {}
 
 

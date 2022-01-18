@@ -6,8 +6,8 @@ Create badges for FurAffinity users using the Shields.io API.
 
 To create a user badge, use the `/badge/{site}/{username}` route.
 
-For example: `https://furaffinity-badge.herokuapp.com/badge/user/furaffinity/FlameOfFurious`
--> [![](https://furaffinity-badge.herokuapp.com/badge/user/furaffinity/FlameOfFurious)](https://furaffinity-badge.herokuapp.com/badge/user/furaffinity/FlameOfFurious)
+For example: `https://furaffinity-badge.herokuapp.com/badge/user/FurAffinity/FlameOfFurious`
+-> [![](https://furaffinity-badge.herokuapp.com/badge/user/FurAffinity/FlameOfFurious)](https://furaffinity-badge.herokuapp.com/badge/user/FurAffinity/FlameOfFurious)
 
 The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
 backend for the username).
