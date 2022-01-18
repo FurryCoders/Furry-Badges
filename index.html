@@ -9,8 +9,13 @@
     <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <style>
-        body {
+        body, body * {
             font-family: Rubik, -apple-system, sans-serif;
+            font-size: 100%;
+        }
+
+        code, code * {
+            font-family: monospace;
         }
     </style>
     <script>
@@ -33,59 +38,60 @@
 </head>
 <body>
 <div style="max-width: 600px; margin: auto">
-    <br><br>
-    <a href="https://gitlab.com/projects/32921925"><img
-            src="https://img.shields.io/badge/Source-GitLab-orange?logo=gitlab" alt=""></a>
-    <br><br>
-    <form class="mui-form">
-        <legend color="var(--color)">Furry Badges</legend>
-        <div class="mui-select">
-            <select id="site" onchange="updateBadge()">
-                <option value="" disabled hidden selected>Select site</option>
-                {% for site in sites %}
-                    <option value="{{ site }}">{{ site }}</option>
-                {% endfor %}
-            </select>
-            <label>Site</label>
-        </div>
-        <div class="mui-textfield">
-            <input id="label" type="text"
-                   oninput="updateBadge()">
-            <label>Label</label>
-        </div>
-        <div class="mui-checkbox">
-            <label>
-                <input type="checkbox" id="noLabel" value=""
-                       onclick="$('label').disabled = this.checked; updateBadge()">
-                No label
-            </label>
-        </div>
-        <div class="mui-textfield">
-            <input id="username" type="text"
-                   oninput="updateBadge()">
-            <label>Username</label>
-        </div>
-    </form>
-    <br><br>
-    <div style="text-align: center">
-        <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
-    </div>
-    <br><br>
-    <div id="examples">
-        <div class="mui--text-subhead">Markdown</div>
-        <code>
-            ![](<span class="badgeURLText"></span>)
-        </code>
+    <div style="margin: 20px">
+        <a href="https://gitlab.com/projects/32921925"><img
+                src="https://img.shields.io/badge/Source-GitLab-orange?logo=gitlab" alt=""></a>
         <br><br>
-        <div class="mui--text-subhead">AsciiDoc</div>
-        <code>
-            image::<span class="badgeURLText"></span>[]
-        </code>
+        <form class="mui-form">
+            <legend color="var(--color)">Furry Badges</legend>
+            <div class="mui-select">
+                <select id="site" onchange="updateBadge()">
+                    <option value="" disabled hidden selected>Select site</option>
+                    {% for site in sites %}
+                        <option value="{{ site }}">{{ site }}</option>
+                    {% endfor %}
+                </select>
+                <label>Site</label>
+            </div>
+            <div class="mui-textfield">
+                <input id="label" type="text"
+                       oninput="updateBadge()">
+                <label>Label</label>
+            </div>
+            <div class="mui-checkbox">
+                <label>
+                    <input type="checkbox" id="noLabel" value=""
+                           onclick="$('label').disabled = this.checked; updateBadge()">
+                    No label
+                </label>
+            </div>
+            <div class="mui-textfield">
+                <input id="username" type="text"
+                       oninput="updateBadge()">
+                <label>Username</label>
+            </div>
+        </form>
         <br><br>
-        <div class="mui--text-subhead">reStructuredText</div>
-        <code>
-            .. image:: <span class="badgeURLText"></span>
-        </code>
+        <div style="text-align: center">
+            <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
+        </div>
+        <br><br>
+        <div id="examples">
+            <div class="mui--text-subhead">Markdown</div>
+            <code>
+                ![](<span class="badgeURLText"></span>)
+            </code>
+            <br><br>
+            <div class="mui--text-subhead">AsciiDoc</div>
+            <code>
+                image::<span class="badgeURLText"></span>[]
+            </code>
+            <br><br>
+            <div class="mui--text-subhead">reStructuredText</div>
+            <code>
+                .. image:: <span class="badgeURLText"></span>
+            </code>
+        </div>
     </div>
 </div>
 </body>
