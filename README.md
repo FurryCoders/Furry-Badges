@@ -1,7 +1,5 @@
 # Fur Affinity Badge
 
-[![furaffinity](https://furaffinity-badge.herokuapp.com/badge/user/FlameOfFurious)](https://furaffinity.net/user/FlameOfFurious)
-
 Create badges for FurAffinity users using the Shields.io API.
 
 ## User Badge
