@@ -26,7 +26,7 @@
             const label = $("label").value.trim()
             const username = $("username").value.trim()
             let url = ""
-            if (username.length === 0) url = ""
+            if (site.length * username.length === 0) url = ""
             else url = `/badge/user/${site}/${encodeURIComponent(username)}/${label}` + ($("noLabel").checked ? "?label=+" : "")
             $("badge").src = url
             $("badgeURL").href = url
@@ -46,7 +46,7 @@
         <form class="mui-form">
             <legend color="var(--color)">Furry Badges</legend>
             <div class="mui-select">
-                <select id="site" onchange="updateBadge()">
+                <select id="site" onchange="updateBadge()" required>
                     <option value="" disabled hidden selected>Select site</option>
                     {% for site in sites %}
                     <option value="{{ site }}">{{ site }}</option>
@@ -68,7 +68,7 @@
             </div>
             <div class="mui-textfield">
                 <input id="username" type="text"
-                       oninput="updateBadge()">
+                       oninput="updateBadge()" required>
                 <label>Username</label>
             </div>
         </form>
