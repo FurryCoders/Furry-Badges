@@ -7,15 +7,10 @@
     <title>Furry Badges</title>
     <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet" type="text/css"/>
     <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <style>
         body {
             font-family: Rubik, -apple-system, sans-serif;
-        }
-
-        .example {
-            font-family: monospace;
-            display: inline-block;
-            white-space: nowrap;
         }
     </style>
 </head>
@@ -24,7 +19,7 @@
     <div style="margin: 20px">
         <div id="sourceBadge">
             <a href="https://github.com/FurryCoders/furry-badges">
-            <img src="https://img.shields.io/badge/Source-GitHub-blue?logo=github" alt=""></a>
+                <img src="https://img.shields.io/badge/Source-GitHub-blue?logo=github" alt=""></a>
         </div>
         <br>
         <form class="mui-form">
@@ -38,8 +33,8 @@
                 </select>
                 <label for="site">Site</label>
             </div>
-            <div class="mui-textfield">
-                <input id="label" type="text" oninput="updateBadge()">
+            <div class="mui-textfield mui-textfield--float-label">
+                <input id="label" type="text" oninput="updateBadge()" value="">
                 <label for="label">Label</label>
             </div>
             <div class="mui-checkbox">
@@ -49,8 +44,8 @@
                     No label
                 </label>
             </div>
-            <div class="mui-textfield">
-                <input id="username" type="text" oninput="updateBadge()" required>
+            <div class="mui-textfield mui-textfield--float-label">
+                <input id="username" type="text" oninput="updateBadge()" value="" required>
                 <label for="username">Username</label>
             </div>
         </form>
@@ -59,23 +54,23 @@
             <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
         </div>
         <br><br>
-        <div id="examples" hidden>
-            <div id="titleSize" class="font mui--text-subhead">Markdown</div>
-            <div class="example" id="markdown"></div>
-            <br><br>
-            <div class="mui--text-subhead">AsciiDoc</div>
-            <div class="example" id="asciidoc"></div>
-            <br><br>
-            <div class="mui--text-subhead">reStructuredText</div>
-            <div class="example" id="restructuredtext"></div>
+        <div id="copyMarkupContainer" hidden>
+            <div class="mui-select" style="max-width: 300px; margin: auto">
+                <select id="copyMarkup" onchange="copyMarkup(this.value); this.selectedIndex = 0">
+                    <option value="" disabled hidden selected>Copy URL & Markup</option>
+                    <option value="url">Badge URL</option>
+                    <option value="markdown">Markdown</option>
+                    <option value="asciidoc">AsciiDoc</option>
+                    <option value="restructuredtext">reStructuredText</option>
+                </select>
+                <label for="copyMarkup"></label>
+            </div>
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/rikschennink/fitty@gh-pages/dist/fitty.min.js"></script>
 <script>
-    const root = window.location.origin
+    const root = "https://furry-badges.herokuapp.com" //window.location.origin
     const $ = (id) => document.getElementById(id)
-    const fitElements = fitty(".example", {minSize: 2})
     const updateBadge = () => {
         const site = $("site").value.trim()
         const label = $("label").value.trim()
@@ -84,15 +79,15 @@
         let url
         if (!site || !username) url = ""
         else url = `/badge/user/${site}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
-        $("badge").src = $("badgeURL").href = url
-        $("badgeContainer").hidden = $("examples").hidden = !url
-        if (!url) return
-        $("markdown").innerText = `![](${root + url})`
-        $("asciidoc").innerText = `image::${root + url}[]`
-        $("restructuredtext").innerText = `.. image:: ${root + url}`
+        $("badge").src = $("badgeURL").href = root + url
+        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
     }
-
-    fitElements.forEach(({element: elem}) => elem.addEventListener('fit', ev => console.log(ev)))
+    const copyMarkup = (markup) => {
+        if (markup === "url") navigator.clipboard.writeText($("badge").src)
+        else if (markup === "markdown") navigator.clipboard.writeText(`![](${$("badge").src})`)
+        else if (markup === "asciidoc") navigator.clipboard.writeText(`image::${$("badge").src}[]`)
+        else if (markup === "restructuredtext") navigator.clipboard.writeText(`.. ${$("badge").src}`)
+    }
 </script>
 </body>
 </html>
