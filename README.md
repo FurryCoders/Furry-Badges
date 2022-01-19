@@ -1,8 +1,14 @@
+<div align="center">
+
+<img alt="logo" width="400" src="https://raw.githubusercontent.com/FurryCoders/Logos/main/logos/furry-badges-transparent.png">
+
 # Furry Badges
 
-Create badges for FurAffinity users using the [Shields.io](https://shields.io) API.
+Create badges for FurAffinity users with the [Shields.io](https://shields.io) API.
 
-Build your own badge online [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
+Build your own badge online at [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
+
+</div>
 
 ## User Badge
 
