@@ -18,7 +18,7 @@ For example: `https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA`
 -> [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)
 
 The label can be specified either in the path, or using the `?label` query parameter. The latter will override the path
-value.
+value. To disabled the label entirely whilst keeping the logo, use `?label=+` as query parameter.
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
