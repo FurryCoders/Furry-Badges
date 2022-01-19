@@ -4,7 +4,7 @@
 
 # Furry Badges
 
-Create badges for FurAffinity users with the [Shields.io](https://shields.io) API.
+Create badges for furry websites with the [Shields.io](https://shields.io) API.
 
 Build your own badge online at [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
 
