@@ -5,10 +5,12 @@ from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import ORJSONResponse
 from fastapi.responses import Response
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 root_folder: Path = Path(__file__).parent
 logos_folder: Path = root_folder / "static" / "logos"
+assets_folders: Path = root_folder / "static" / "assets"
 templates: Jinja2Templates = Jinja2Templates(str(root_folder))
 
 badge_template: dict[str, str | int] = {
@@ -36,6 +38,7 @@ app.add_route("/",
                                                    {"request": r,
                                                     "sites": sorted(set(logos.keys()).union(colors.keys()))}),
               ["GET"])
+app.mount("/assets", StaticFiles(directory=assets_folders), "assets")
 
 
 def get_badge(endpoint: str, **params) -> Response:
