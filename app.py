@@ -39,6 +39,7 @@ app.add_route("/",
                                                     "sites": sorted(set(logos.keys()).union(colors.keys()))}),
               ["GET"])
 app.mount("/assets", StaticFiles(directory=assets_folders), "assets")
+app.mount("/logos", StaticFiles(directory=logos_folder), "logos")
 
 
 def get_badge(endpoint: str, **params) -> Response:
