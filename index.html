@@ -77,12 +77,13 @@
         <br><br>
         <div id="copyMarkupContainer" hidden>
             <div class="mui-select" style="max-width: 300px; margin: auto">
-                <select id="copyMarkup" onchange="copyMarkup(this.value); this.selectedIndex = 0">
+                <select id="copyMarkup"
+                        onchange="navigator.clipboard.writeText(this.selectedOptions[0].onselect(null)); this.selectedIndex = 0">
                     <option value="" disabled hidden selected>Copy URL & Markup</option>
-                    <option value="url">Badge URL</option>
-                    <option value="markdown">Markdown</option>
-                    <option value="asciidoc">AsciiDoc</option>
-                    <option value="restructuredtext">reStructuredText</option>
+                    <option value="url" onselect="return $('badge').src">Badge URL</option>
+                    <option value="markdown" onselect="return `![](${$('badge').src})`">Markdown</option>
+                    <option value="asciidoc" onselect="return `image::${$('badge').src}[]`">AsciiDoc</option>
+                    <option value="restructuredtext" onselect="return `.. image:: ${$('badge').src}`">reStructuredText</option>
                 </select>
                 <label for="copyMarkup"></label>
             </div>
@@ -103,12 +104,7 @@
         $("badge").src = $("badgeURL").href = root + url
         $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
     }
-    const copyMarkup = (markup) => {
-        if (markup === "url") navigator.clipboard.writeText($("badge").src)
-        else if (markup === "markdown") navigator.clipboard.writeText(`![](${$("badge").src})`)
-        else if (markup === "asciidoc") navigator.clipboard.writeText(`image::${$("badge").src}[]`)
-        else if (markup === "restructuredtext") navigator.clipboard.writeText(`.. ${$("badge").src}`)
-    }
+    window.onload = () => updateBadge()
 </script>
 </body>
 </html>
