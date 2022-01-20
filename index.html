@@ -36,6 +36,8 @@
     </style>
 </head>
 <body>
+{% set animals_ = ["Wolf", "Fox", "Bear", "Dog", "Dragon", "Otter", "Tiger", "Cat"] %}
+{% set placeholder_animal = animals_[range(0, animals | length) | random] %}
 <div style="max-width: 600px; margin: auto">
     <div style="margin: 20px">
         <div id="sourceBadge">
@@ -43,35 +45,79 @@
                 <img src="https://img.shields.io/badge/Source-GitHub-blue?logo=github" alt=""></a>
         </div>
         <br>
-        <div class="mui-form">
-            <div class="mui--text-title">Furry Badges</div>
+        <div class="mui--text-center mui--align-middle">
+            <button class="mui-btn"
+                    id="userButton"
+                    onclick="this.disabled = !this.disabled; $('userBadge').hidden = false; $('animalBadge').hidden = true; $('animalButton').disabled = false; updateUserBadge()"
+                    disabled>
+                User Badge
+            </button>
+            <button class="mui-btn"
+                    id="animalButton"
+                    onclick="this.disabled = !this.disabled; $('userBadge').hidden = true; $('animalBadge').hidden = false; $('userButton').disabled = false; updateAnimalBadge()">
+                Animal Badge
+            </button>
+        </div>
+        <div id="userBadge" class="mui-form">
+            <div class="mui--text-title">Furry User Badges</div>
+            <br>
             <div class="mui-select">
-                <select id="site" onchange="updateBadge()" required>
+                <select id="site" onchange="updateUserBadge()" required>
                     <option value="furry">furry</option>
                     {% for site in sites %}
-                        {% if site != "furry" %}
-                            <option value="{{ site }}">{{ site }}</option>
-                        {% endif %}
+                    {% if site != "furry" %}
+                    <option value="{{ site }}">{{ site }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="site">Site</label>
             </div>
             <div class="mui-textfield mui-textfield--float-label">
-                <input id="label" type="text" oninput="updateBadge()" value="">
+                <input id="label" type="text" oninput="updateUserBadge()" value="">
                 <label for="label">Label</label>
             </div>
             <div class="mui-checkbox">
                 <label>
                     <input type="checkbox" id="noLabel" value=""
-                           onclick="$('label').disabled = this.checked; updateBadge()">
+                           onclick="$('label').disabled = this.checked; updateUserBadge()">
                     No label
                 </label>
             </div>
             <div class="mui-textfield mui-textfield--float-label">
-                {% set animals = ["Wolf", "Fox", "Bear", "Dog", "Dragon", "Otter", "Tiger", "Cat"] %}
-                <input id="username" type="text" oninput="updateBadge()"
-                       value="{{ animals[range(0, animals | length) | random] }}" required>
+                <input id="username" type="text" oninput="updateUserBadge()"
+                       value="{{ placeholder_animal }}" required>
                 <label for="username">Username</label>
+            </div>
+        </div>
+        <div id="animalBadge" class="mui-form" hidden>
+            <div class="mui--text-title">Furry Animal Badges</div>
+            <br>
+            <div class="mui-select">
+                <select id="animal" onchange="updateAnimalBadge()" required>
+                    <option value="furry">furry</option>
+                    {% for animal in animals %}
+                    {% if animal != "furry" %}
+                    <option value="{{ animal }}">{{ animal }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="animal">Animal</label>
+            </div>
+            <div class="mui-textfield mui-textfield--float-label">
+                <input id="labelAnimal" type="text" oninput="updateAnimalBadge()" value="">
+                <label for="labelAnimal">Label</label>
+            </div>
+            <div class="mui-checkbox">
+                <label>
+                    <input type="checkbox" id="noLabelAnimal" value=""
+                           onclick="$('label').disabled = this.checked; updateAnimalBadge()">
+                    No label
+                </label>
+            </div>
+            <div class="mui-textfield mui-textfield--float-label">
+                <input id="usernameAnimal" type="text" oninput="updateAnimalBadge()"
+                       value="{{ placeholder_animal }}" required>
+                <label for="usernameAnimal">Username</label>
             </div>
         </div>
         <br><br>
@@ -99,7 +145,7 @@
 <script>
     const root = "https://furry-badges.herokuapp.com" //window.location.origin
     const $ = (id) => document.getElementById(id)
-    const updateBadge = () => {
+    const updateUserBadge = () => {
         const site = $("site").value.trim()
         const label = $("label").value.trim()
         const username = $("username").value.trim()
@@ -110,7 +156,18 @@
         $("badge").src = $("badgeURL").href = root + url
         $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
     }
-    window.onload = () => updateBadge()
+    const updateAnimalBadge = () => {
+        const animal = $("animal").value.trim()
+        const label = $("labelAnimal").value.trim()
+        const username = $("usernameAnimal").value.trim()
+        const noLabel = $("noLabelAnimal").checked
+        let url
+        if (!animal || !username) url = ""
+        else url = `/badge/animal/${animal}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
+        $("badge").src = $("badgeURL").href = root + url
+        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
+    }
+    window.onload = () => updateUserBadge()
 </script>
 </body>
 </html>

@@ -77,7 +77,7 @@ app.add_route("/", lambda r: templates.TemplateResponse(
     "index.html",
     {"request": r,
      "sites": sorted(set(logos.keys()).union(data[BadgeType.user.name].keys())),
-     "icons": sorted(set(icons.keys()).union(data[BadgeType.animal.name].keys()))}))
+     "animals": sorted(set(icons.keys()).union(data[BadgeType.animal.name].keys()))}))
 app.mount("/assets", StaticFiles(directory=assets_folder), "assets")
 app.mount("/logos", StaticFiles(directory=logos_folder), "logos")
 app.mount("/icons", StaticFiles(directory=icons_folder), "icons")
