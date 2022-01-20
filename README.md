@@ -38,6 +38,26 @@ backend for the username).
 
 The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. like all Shields.io badges.
 
+## Animal Badge
+
+To create an animal badge, use the `/badge/animal/{animal}/{username}` and `/badge/animal/{animal}/{username}/{label}`
+routes.
+
+| Site     | Logo                                                                                                                            |
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------|
+| `furry`  | [![](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)   |
+| `dragon` | [![](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo)](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo) |
+| `fox`    | [![](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)       |
+| `tiger`  | [![](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)   |
+| `wolf`   | [![](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)     |
+
+_Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
+
+The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
+backend for the username).
+
+The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. like all Shields.io badges.
+
 ## JSON Endpoint
 
 The `/badge/endpoint/{site}/{username}` route is used as endpoint for the Shields.io API.
