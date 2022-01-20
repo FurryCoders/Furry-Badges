@@ -71,7 +71,8 @@
             </div>
         </div>
         <br><br>
-        <div id="badgeContainer" style="text-align: center; cursor: pointer !important;" hidden>
+        <div id="badgeContainer" class="mui--text-center mui--align-middle"
+             style="cursor: pointer !important; min-height: 25px" hidden>
             <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
         </div>
         <br><br>
@@ -83,7 +84,8 @@
                     <option value="url" onselect="return $('badge').src">Badge URL</option>
                     <option value="markdown" onselect="return `![](${$('badge').src})`">Markdown</option>
                     <option value="asciidoc" onselect="return `image::${$('badge').src}[]`">AsciiDoc</option>
-                    <option value="restructuredtext" onselect="return `.. image:: ${$('badge').src}`">reStructuredText</option>
+                    <option value="restructuredtext" onselect="return `.. image:: ${$('badge').src}`">reStructuredText
+                    </option>
                 </select>
                 <label for="copyMarkup"></label>
             </div>
