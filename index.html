@@ -47,9 +47,11 @@
             <div class="mui--text-title">Furry Badges</div>
             <div class="mui-select">
                 <select id="site" onchange="updateBadge()" required>
-                    <option value="" disabled hidden selected>Select site</option>
+                    <option value="furry">furry</option>
                     {% for site in sites %}
-                    <option value="{{ site }}">{{ site }}</option>
+                        {% if site != "furry" %}
+                            <option value="{{ site }}">{{ site }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="site">Site</label>
@@ -66,7 +68,9 @@
                 </label>
             </div>
             <div class="mui-textfield mui-textfield--float-label">
-                <input id="username" type="text" oninput="updateBadge()" value="" required>
+                {% set animals = ["Wolf", "Fox", "Bear", "Dog", "Dragon", "Otter", "Tiger", "Cat"] %}
+                <input id="username" type="text" oninput="updateBadge()"
+                       value="{{ animals[range(0, animals | length) | random] }}" required>
                 <label for="username">Username</label>
             </div>
         </div>
