@@ -24,12 +24,12 @@ Colors and logos change depending on the site used. Logos and colors are provide
 
 | Site           | Logo                                                                                                                                    |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)               |
+| `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/furry/Logo)](https://furry-badges.herokuapp.com/badge/user/furry/Logo)               |
 | `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                 |
-| `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/FurAffinity/Logo)   |
-| `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/FurryNetwork/Logo)](https://furry-badges.herokuapp.com/badge/user/FurryNetwork/Logo) |
-| `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/SoFurry/Logo)](https://furry-badges.herokuapp.com/badge/user/SoFurry/Logo)           |
-| `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/Weasyl/Logo)             |
+| `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)   |
+| `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
+| `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)           |
+| `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)             |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
 
@@ -60,4 +60,4 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## JSON Endpoint
 
-The `/badge/endpoint/{site}/{username}` route is used as endpoint for the Shields.io API.
+The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
