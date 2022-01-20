@@ -117,8 +117,8 @@ def badge_user(request: Request, site: str, username: str, label: str = None):
                      **request.query_params)
 
 
-@app.get("/badge/animal/{icon}/{name}/", response_class=Response)
-@app.get("/badge/animal/{icon}/{name}/{label}/", response_class=Response)
+@app.get("/badge/animal/{icon}/{username}/", response_class=Response)
+@app.get("/badge/animal/{icon}/{username}/{label}/", response_class=Response)
 def badge_user(request: Request, icon: str, username: str, label: str = None):
     return get_badge(app.servers[0]["url"] +
                      app.url_path_for(badge_endpoint.__name__, badge_type=BadgeType.animal.name, site=icon,
