@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 
 root_folder: Path = Path(__file__).parent
 logos_folder: Path = root_folder / "static" / "logos"
-assets_folders: Path = root_folder / "static" / "assets"
+assets_folder: Path = root_folder / "static" / "assets"
 templates: Jinja2Templates = Jinja2Templates(str(root_folder))
 
 badge_template: dict[str, str | int] = {
@@ -38,7 +38,7 @@ app.add_route("/",
                                                    {"request": r,
                                                     "sites": sorted(set(logos.keys()).union(colors.keys()))}),
               ["GET"])
-app.mount("/assets", StaticFiles(directory=assets_folders), "assets")
+app.mount("/assets", StaticFiles(directory=assets_folder), "assets")
 app.mount("/logos", StaticFiles(directory=logos_folder), "logos")
 
 
