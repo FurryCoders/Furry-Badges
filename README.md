@@ -12,7 +12,7 @@ Build your own badge online at [furry-badges.herokuapp.com](https://furry-badges
 
 ## User Badge
 
-To create a user badge, use the `/badge/{site}/{username}` and `/badge/{site}/{username}/{label}` routes.
+To create a user badge, use the `/badge/user/{site}/{username}` and `/badge/user/{site}/{username}/{label}` routes.
 
 For example: `https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA`
 -> [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)
