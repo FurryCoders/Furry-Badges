@@ -33,6 +33,10 @@
         body {
             font-family: Rubik, -apple-system, sans-serif;
         }
+
+        select:disabled, label:disabled {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -48,76 +52,62 @@
         <div class="mui--text-center mui--align-middle">
             <button class="mui-btn"
                     id="userButton"
-                    onclick="this.disabled = !this.disabled; $('userBadge').hidden = false; $('animalBadge').hidden = true; $('animalButton').disabled = false; updateUserBadge()"
+                    onclick="this.disabled = $('animalSelectContainer').hidden = $('animal').disabled = true; $('userSelectContainer').hidden = $('user').disabled = $('animalButton').disabled = false; updateBadge()"
                     disabled>
                 User Badge
             </button>
             <button class="mui-btn"
                     id="animalButton"
-                    onclick="this.disabled = !this.disabled; $('userBadge').hidden = true; $('animalBadge').hidden = false; $('userButton').disabled = false; updateAnimalBadge()">
+                    onclick="this.disabled = $('userSelectContainer').hidden = $('user').disabled = true; $('animalSelectContainer').hidden = $('animal').disabled = $('userButton').disabled = false; updateBadge()">
                 Animal Badge
             </button>
         </div>
         <div id="userBadge" class="mui-form">
             <div class="mui--text-title">Furry User Badges</div>
             <br>
-            <div class="mui-select">
-                <select id="site" onchange="updateUserBadge()" required>
-                    <option value="furry">furry</option>
-                    {% for site in sites %}
-                    {% if site != "furry" %}
-                    <option value="{{ site }}">{{ site }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-                <label for="site">Site</label>
+            <div id="userAnimalSelect">
+                <div id="userSelectContainer">
+                    <div class="mui-select">
+                        <select id="user" onchange="updateBadge()" required>
+                            <option value="furry">furry</option>
+                            {% for site in sites %}
+                                {% if site != "furry" %}
+                                    <option value="{{ site }}">{{ site }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="user">Site</label>
+                    </div>
+                </div>
+                <div id="animalSelectContainer" hidden>
+                    <div class="mui-select">
+                        <select id="animal" onchange="updateBadge()" required disabled>
+                            <option value="furry">furry</option>
+                            {% for animal in animals %}
+                                {% if animal != "furry" %}
+                                    <option value="{{ animal }}">{{ animal }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="animal">Animal</label>
+                    </div>
+                </div>
             </div>
             <div class="mui-textfield mui-textfield--float-label">
-                <input id="label" type="text" oninput="updateUserBadge()" value="">
+                <input id="label" type="text" oninput="updateBadge()" value="">
                 <label for="label">Label</label>
             </div>
             <div class="mui-checkbox">
                 <label>
                     <input type="checkbox" id="noLabel" value=""
-                           onclick="$('label').disabled = this.checked; updateUserBadge()">
+                           onclick="$('label').disabled = this.checked; updateBadge()">
                     No label
                 </label>
             </div>
             <div class="mui-textfield mui-textfield--float-label">
-                <input id="username" type="text" oninput="updateUserBadge()"
+                <input id="username" type="text" oninput="updateBadge()"
                        value="{{ placeholder_animal }}" required>
                 <label for="username">Username</label>
-            </div>
-        </div>
-        <div id="animalBadge" class="mui-form" hidden>
-            <div class="mui--text-title">Furry Animal Badges</div>
-            <br>
-            <div class="mui-select">
-                <select id="animal" onchange="updateAnimalBadge()" required>
-                    <option value="furry">furry</option>
-                    {% for animal in animals %}
-                    {% if animal != "furry" %}
-                    <option value="{{ animal }}">{{ animal }}</option>
-                    {% endif %}
-                    {% endfor %}
-                </select>
-                <label for="animal">Animal</label>
-            </div>
-            <div class="mui-textfield mui-textfield--float-label">
-                <input id="labelAnimal" type="text" oninput="updateAnimalBadge()" value="">
-                <label for="labelAnimal">Label</label>
-            </div>
-            <div class="mui-checkbox">
-                <label>
-                    <input type="checkbox" id="noLabelAnimal" value=""
-                           onclick="$('label').disabled = this.checked; updateAnimalBadge()">
-                    No label
-                </label>
-            </div>
-            <div class="mui-textfield mui-textfield--float-label">
-                <input id="usernameAnimal" type="text" oninput="updateAnimalBadge()"
-                       value="{{ placeholder_animal }}" required>
-                <label for="usernameAnimal">Username</label>
             </div>
         </div>
         <br><br>
@@ -145,29 +135,20 @@
 <script>
     const root = "https://furry-badges.herokuapp.com" //window.location.origin
     const $ = (id) => document.getElementById(id)
-    const updateUserBadge = () => {
-        const site = $("site").value.trim()
+    const updateBadge = () => {
+        const selector = document.querySelector("#userAnimalSelect div select:enabled")
+        const badgeType = selector.id
+        const badgeValue = selector.value
         const label = $("label").value.trim()
         const username = $("username").value.trim()
         const noLabel = $("noLabel").checked
         let url
-        if (!site || !username) url = ""
-        else url = `/badge/user/${site}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
+        if (!badgeValue || !username) url = ""
+        else url = `/badge/${badgeType}/${badgeValue}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
         $("badge").src = $("badgeURL").href = root + url
         $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
     }
-    const updateAnimalBadge = () => {
-        const animal = $("animal").value.trim()
-        const label = $("labelAnimal").value.trim()
-        const username = $("usernameAnimal").value.trim()
-        const noLabel = $("noLabelAnimal").checked
-        let url
-        if (!animal || !username) url = ""
-        else url = `/badge/animal/${animal}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
-        $("badge").src = $("badgeURL").href = root + url
-        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
-    }
-    window.onload = () => updateUserBadge()
+    window.onload = () => updateBadge()
 </script>
 </body>
 </html>
