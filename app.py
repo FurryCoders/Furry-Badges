@@ -63,6 +63,10 @@ data: dict = {
             "alias": "Dragon",
             "colors": ("#EA5A47", "#B1CC33")
         },
+        "bear": {
+            "alias": "Bear",
+            "colors": ("#D7B487", "#7C665D")
+        }
     }
 }
 
