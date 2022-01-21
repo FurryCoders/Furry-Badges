@@ -37,6 +37,10 @@
         select:disabled, label:disabled {
             display: none;
         }
+
+        #colorPickers * {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -110,21 +114,22 @@
                 <label for="username">Username</label>
             </div>
             <div id="colorPickers" class="mui--text-center mui--align-middle">
-                <input type="color" id="labelColor"
-                       data-changed=""
-                       onchange="this.dataset.changed = $('labelColorButton').style.backgroundColor = this.value + 'BB'; updateBadge()"
-                       value=""
-                       hidden>
-                <input type="color" id="messageColor"
-                       data-changed=""
-                       onchange="this.dataset.changed = $('messageColorButton').style.backgroundColor = this.value + 'BB'; updateBadge()"
-                       value=""
-                       hidden>
-                <button class="mui-btn" id="labelColorButton" onclick="$('labelColor').click()">Label Color</button>
-                <button class="mui-btn" id="messageColorButton" onclick="$('messageColor').click()">Message Color
+                <button id="labelColorButton" class="mui-btn" onclick="$('labelColor').click()">
+                    <input type="color" id="labelColor" style="opacity: 0; position: absolute; width: 100%; margin: 0"
+                           data-changed=""
+                           onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
+                           value="">
+                    Label Color
+                </button>
+                <button id="messageColorButton" class="mui-btn" onclick="$('messageColor').click()">
+                    <input type="color" id="messageColor" style="opacity: 0; position: absolute; width: 100%; margin: 0"
+                           data-changed=""
+                           onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
+                           value="">
+                    Message Color
                 </button>
                 <button class="mui-btn"
-                        onclick="const l = $('labelColor'), m = $('messageColor'); $('labelColorButton').style.backgroundColor = $('messageColorButton').style.backgroundColor = l.value = m.value = l.dataset.changed = m.dataset.changed = ''; updateBadge()">
+                        onclick="const l = $('labelColor'), m = $('messageColor'); l.parentElement.style.backgroundColor = m.parentElement.style.backgroundColor = l.value = m.value = l.dataset.changed = m.dataset.changed = ''; updateBadge()">
                     Reset Colors
                 </button>
             </div>
