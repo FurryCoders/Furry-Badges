@@ -41,6 +41,22 @@
         #colorPickers * {
             cursor: pointer;
         }
+
+        .footer {
+            width: 100%;
+            text-align: center;
+        }
+
+        @media only screen and (min-height: 700px) {
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                height: 30px;
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -157,6 +173,7 @@
             </div>
         </div>
     </div>
+    <div class="footer"><i>Style by <a href="https://www.muicss.com">Material Design CSS</a></i></div>
 </div>
 <script>
     const root = "https://furry-badges.herokuapp.com" //window.location.origin
