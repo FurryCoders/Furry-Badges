@@ -115,14 +115,16 @@
             </div>
             <div id="colorPickers" class="mui--text-center mui--align-middle">
                 <button id="labelColorButton" class="mui-btn" onclick="$('labelColor').click()">
-                    <input type="color" id="labelColor" style="opacity: 0; position: absolute; width: 100%; margin: 0"
+                    <input type="color" id="labelColor"
+                           style="opacity: 0; position: absolute; width: 100%; left: 0; margin: 0"
                            data-changed=""
                            onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
                            value="">
                     Label Color
                 </button>
                 <button id="messageColorButton" class="mui-btn" onclick="$('messageColor').click()">
-                    <input type="color" id="messageColor" style="opacity: 0; position: absolute; width: 100%; margin: 0"
+                    <input type="color" id="messageColor"
+                           style="opacity: 0; position: absolute; width: 100%; left: 0; margin: 0"
                            data-changed=""
                            onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
                            value="">
