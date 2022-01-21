@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--suppress HtmlUnknownTarget -->
+<!--suppress HtmlUnknownTarget,HtmlFormInputWithoutLabel -->
 <html lang="en">
 <head>
     <title>Furry Badges</title>
@@ -49,6 +49,8 @@
                 <img src="https://img.shields.io/badge/Source-GitHub-blue?logo=github" alt=""></a>
         </div>
         <br>
+        <div class="mui--text-headline">Furry Badges</div>
+        <br>
         <div class="mui--text-center mui--align-middle">
             <button class="mui-btn"
                     id="userButton"
@@ -63,8 +65,6 @@
             </button>
         </div>
         <div id="userBadge" class="mui-form">
-            <div class="mui--text-title">Furry User Badges</div>
-            <br>
             <div id="userAnimalSelect">
                 <div id="userSelectContainer">
                     <div class="mui-select">
@@ -109,6 +109,25 @@
                        value="{{ placeholder_animal }}" required>
                 <label for="username">Username</label>
             </div>
+            <div id="colorPickers" class="mui--text-center mui--align-middle">
+                <input type="color" id="labelColor"
+                       data-changed=""
+                       onchange="this.dataset.changed = $('labelColorButton').style.backgroundColor = this.value + 'BB'; updateBadge()"
+                       value=""
+                       hidden>
+                <input type="color" id="messageColor"
+                       data-changed=""
+                       onchange="this.dataset.changed = $('messageColorButton').style.backgroundColor = this.value + 'BB'; updateBadge()"
+                       value=""
+                       hidden>
+                <button class="mui-btn" id="labelColorButton" onclick="$('labelColor').click()">Label Color</button>
+                <button class="mui-btn" id="messageColorButton" onclick="$('messageColor').click()">Message Color
+                </button>
+                <button class="mui-btn"
+                        onclick="const l = $('labelColor'), m = $('messageColor'); $('labelColorButton').style.backgroundColor = $('messageColorButton').style.backgroundColor = l.value = m.value = l.dataset.changed = m.dataset.changed = ''; updateBadge()">
+                    Reset Colors
+                </button>
+            </div>
         </div>
         <br><br>
         <div id="badgeContainer" class="mui--text-center mui--align-middle"
@@ -141,12 +160,21 @@
         const badgeValue = selector.value
         const label = $("label").value.trim()
         const username = $("username").value.trim()
+        const labelColor = $("labelColor")
+        const color = $("messageColor")
         const noLabel = $("noLabel").checked
         let url
-        if (!badgeValue || !username) url = ""
-        else url = `/badge/${badgeType}/${badgeValue}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}` + (noLabel ? "?label=+" : "")
-        $("badge").src = $("badgeURL").href = root + url
-        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = !url
+        if (!badgeValue || !username) url = null
+        else {
+            const url_ = new URL(root)
+            url_.pathname = `/badge/${badgeType}/${badgeValue}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}`
+            if (noLabel) url_.searchParams.set("label", "+")
+            if (labelColor.dataset.changed !== '') url_.searchParams.set("labelColor", labelColor.value.replace(/^#/, ""))
+            if (color.dataset.changed !== '') url_.searchParams.set("color", color.value.replace(/^#/, ""))
+            url = url_.href
+        }
+        $("badge").src = $("badgeURL").href = url == null ? "" : url
+        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = url === null
     }
     window.onload = () => updateBadge()
 </script>
