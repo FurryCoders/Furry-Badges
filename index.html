@@ -155,7 +155,7 @@
         <br><br>
         <div id="badgeContainer" class="mui--text-center mui--align-middle"
              style="cursor: pointer !important; min-height: 25px" hidden>
-            <a id="badgeURL" href=""><img id="badge" src="" alt=""></a>
+            <a id="badgeURL" href="#"><img id="badge" src="#" alt=""></a>
         </div>
         <br><br>
         <div id="copyMarkupContainer" hidden>
@@ -197,7 +197,7 @@
             if (color.dataset.changed !== '') url_.searchParams.set("color", color.value.replace(/^#/, ""))
             url = url_.href
         }
-        $("badge").src = $("badgeURL").href = url == null ? "" : url
+        $("badge").src = $("badgeURL").href = !url ? "#" : url
         $("badgeContainer").hidden = $("copyMarkupContainer").hidden = url === null
     }
     window.onload = () => updateBadge()
