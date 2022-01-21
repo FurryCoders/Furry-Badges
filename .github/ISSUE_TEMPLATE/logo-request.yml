@@ -1,0 +1,23 @@
+name: Logo Request
+description: Open a logo request
+title: "[Logo Request]: "
+labels: ["enhancement"]
+assignees:
+  - MatteoCampinoti94
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this icon request!
+  - type: textarea
+    id: summary
+    attributes:
+      label: The logo
+      description: Describe the logo and what site/animal it should represent.
+    validations:
+      required: true
+  - type: textarea
+    id: logo
+    attributes:
+      label: Existing logo
+      description: Does the logo already exist? Do you have auggestions to create it?
