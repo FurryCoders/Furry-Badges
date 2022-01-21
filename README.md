@@ -8,6 +8,9 @@ Create badges for furry websites with the [Shields.io](https://shields.io) API.
 
 Build your own badge online at [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
 
+Do you have suggestions on new logos and
+sites? [Open a logo request!](https://github.com/FurryCoders/Furry-Badges/issues/new?assignees=MatteoCampinoti94&labels=enhancement&template=logo-request.yml&title=%5BLogo+Request%5D%3A+)
+
 </div>
 
 ## User Badge
