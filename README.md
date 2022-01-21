@@ -43,6 +43,14 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 To create an animal badge, use the `/badge/animal/{animal}/{username}` and `/badge/animal/{animal}/{username}/{label}`
 routes.
 
+For example: `https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy`
+-> [![](https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy)](https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy)
+
+The label can be specified either in the path, or using the `?label` query parameter. The latter will override the path
+value. To disable the label entirely whilst keeping the logo, use `?label=+` as query parameter.
+
+Colors and logos change depending on the animal used. Logos and colors are provided for the following websites:
+
 | Site     | Logo                                                                                                                            |
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------|
 | `furry`  | [![](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)   |
