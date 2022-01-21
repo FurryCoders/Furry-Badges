@@ -192,7 +192,7 @@
         else {
             const url_ = new URL(root)
             url_.pathname = `/badge/${badgeType}/${badgeValue}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}`
-            if (noLabel) url_.searchParams.set("label", "+")
+            if (noLabel) url_.searchParams.set("label", "")
             if (labelColor.dataset.changed !== '') url_.searchParams.set("labelColor", labelColor.value.replace(/^#/, ""))
             if (color.dataset.changed !== '') url_.searchParams.set("color", color.value.replace(/^#/, ""))
             url = url_.href
