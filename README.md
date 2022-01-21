@@ -57,6 +57,7 @@ Colors and logos change depending on the animal used. Logos and colors are provi
 | Site     | Logo                                                                                                                            |
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------|
 | `furry`  | [![](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)   |
+| `bear`   | [![](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)     |
 | `dragon` | [![](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo)](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo) |
 | `fox`    | [![](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)       |
 | `tiger`  | [![](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)   |
