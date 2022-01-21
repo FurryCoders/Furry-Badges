@@ -37,6 +37,10 @@ data: dict = {
             "alias": "Fur Affinity",
             "colors": ("#151718", "#FAAF3A")
         },
+        "furrynetwork": {
+            "alias": "Furry Network",
+            "colors": ("#FFFFFF", "#2E76B4")
+        },
         "sofurry": {
             "alias": "SoFurry",
             "colors": ("#543D3B", "#C05D00")
