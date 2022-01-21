@@ -72,3 +72,13 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 ## JSON Endpoint
 
 The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
+
+## Credits
+
+* e621 logo belongs to [e621](https://e621.net)
+* Fur Affinity logo belongs to [Fur Affinity](https://furaffinity.net)
+* Furry Network logo belongs to [Furry Network](https://furrynetwork.com)
+* So Furry logo belongs to [So Furry](https://sofurry.com) (converted to SVG format)
+* Weasyl logo belongs to [Weasyl](https://weasyl.com)
+
+Animal icons sourced from [SVG Repo](https://www.svgrepo.com/)
