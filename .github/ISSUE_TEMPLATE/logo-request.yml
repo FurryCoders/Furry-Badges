@@ -12,12 +12,12 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: The logo
+      label: The Logo
       description: Describe the logo and what site/animal it should represent.
     validations:
       required: true
   - type: textarea
     id: logo
     attributes:
-      label: Existing logo
-      description: Does the logo already exist? Do you have auggestions to create it?
+      label: Logo Location & Suggestions
+      description: Does the logo already exist? Do you have suggestions on its design?
