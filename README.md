@@ -39,7 +39,8 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | `wikifur`      | [![](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)            |
 | `yiffstar`     | [![](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo/Yiffstar)](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo) |
 
-_Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
+_Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link if no
+other label is specified.
 
 The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
 backend for the username).
@@ -68,7 +69,8 @@ Colors and logos change depending on the animal used. Logos and colors are provi
 | `tiger`  | [![](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)   |
 | `wolf`   | [![](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)     |
 
-_Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
+_Note_: logos are matched case-insensitively, but the label on the badge will respect the animal used in the link if no
+other label is specified.
 
 The route supports all [Shields.io style parameters](https://shields.io/#styles) except for `message` (it's used by the
 backend for the username).
@@ -99,8 +101,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
   to [Weasyl](https://weasyl.com).
 * [WikiFur logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/wikifur.svg) belongs
   to [WikiFur](https://wikifur.com/) (converted to SVG format).
-* [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs
-  to the defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
+* [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs to the
+  defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
 
 [Animal icons](https://github.com/FurryCoders/Furry-Badges/tree/main/static/icons) sourced
 from [SVG Repo](https://www.svgrepo.com/)
