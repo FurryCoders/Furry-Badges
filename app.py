@@ -56,10 +56,6 @@ data: dict = {
             "alias": "VCL",
             "colors": ("#005E74", "#DA5A36"),
         },
-        "vcl-alt": {
-            "alias": "VCL",
-            "colors": ("#005E74", "#DA5A36"),
-        },
         "weasyl": {
             "alias": "Weasyl",
             "colors": ("#1D2224", "#990000")
