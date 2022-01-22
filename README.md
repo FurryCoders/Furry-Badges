@@ -33,6 +33,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)    |
 | `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
 | `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)            |
+| `vcl`          | [![](https://furry-badges.herokuapp.com/badge/user/vcl/Logo)](https://furry-badges.herokuapp.com/badge/user/vcl/Logo)                    |
 | `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)              |
 | `wikifur`      | [![](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)            |
 | `yiffstar`     | [![](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo/Yiffstar)](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo) |
@@ -89,6 +90,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
   to [Furry Network](https://furrynetwork.com).
 * [So Furry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
   to [So Furry](https://sofurry.com) (converted to SVG format).
+* [VCL logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/vcl.svg) belongs
+  to [VCL](http://us.vclart.net/vcl/) (converted to SVG format).
 * [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
   to [Weasyl](https://weasyl.com).
 * [WikiFur logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/wikifur.svg) belongs
