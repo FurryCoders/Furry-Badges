@@ -82,7 +82,7 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
 ## Credits
 
 * [Buzzly logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/buzzly.svg) belongs
-  to [buzzly](https://buzzly.art).
+  to [Buzzly.art](https://buzzly.art).
 * [DeviantArt logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/deviantart.svg) belongs
   to [DeviantArt](https://deviantart.com).
 * [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) belongs
