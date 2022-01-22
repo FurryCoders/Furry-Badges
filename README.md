@@ -57,7 +57,7 @@ value. To disable the label entirely whilst keeping the logo, use `?label=+` as 
 
 Colors and logos change depending on the animal used. Logos and colors are provided for the following websites:
 
-| Site     | Logo                                                                                                                            |
+| Animal   | Logo                                                                                                                            |
 |:---------|:--------------------------------------------------------------------------------------------------------------------------------|
 | `furry`  | [![](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)   |
 | `bear`   | [![](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)     |
