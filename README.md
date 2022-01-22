@@ -76,15 +76,16 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
 
 ## Credits
 
-* [e621](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) logo belongs
+* [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) belongs
   to [e621](https://e621.net)
-* [Fur Affinity](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furaffinity.svg) logo belongs
+* [Fur Affinity logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furaffinity.svg) belongs
   to [Fur Affinity](https://furaffinity.net)
-* [Furry Network](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) logo belongs
+* [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) belongs
   to [Furry Network](https://furrynetwork.com)
-* [So Furry](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) logo belongs
+* [So Furry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
   to [So Furry](https://sofurry.com) (converted to SVG format)
-* [Weasyl](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) logo belongs
+* [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
   to [Weasyl](https://weasyl.com)
 
-[Animal icons](https://github.com/FurryCoders/Furry-Badges/tree/main/static/icons) sourced from [SVG Repo](https://www.svgrepo.com/)
+[Animal icons](https://github.com/FurryCoders/Furry-Badges/tree/main/static/icons) sourced
+from [SVG Repo](https://www.svgrepo.com/)
