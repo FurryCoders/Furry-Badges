@@ -1,6 +1,6 @@
+from enum import Enum
 from pathlib import Path
 from urllib.parse import quote
-from enum import Enum
 
 import requests
 from fastapi import FastAPI
@@ -53,6 +53,10 @@ data: dict = {
             "colors": ("#543D3B", "#C05D00")
         },
         "vcl": {
+            "alias": "VCL",
+            "colors": ("#005E74", "#DA5A36"),
+        },
+        "vcl-alt": {
             "alias": "VCL",
             "colors": ("#005E74", "#DA5A36"),
         },
