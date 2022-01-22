@@ -52,6 +52,10 @@ data: dict = {
             "alias": "SoFurry",
             "colors": ("#543D3B", "#C05D00")
         },
+        "vcl": {
+            "alias": "VCL",
+            "colors": ("#005E74", "#DA5A36"),
+        },
         "weasyl": {
             "alias": "Weasyl",
             "colors": ("#1D2224", "#990000")
