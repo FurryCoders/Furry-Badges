@@ -56,6 +56,10 @@ data: dict = {
             "alias": "Weasyl",
             "colors": ("#1D2224", "#990000")
         },
+        "wikifur": {
+            "alias": "WikiFur",
+            "colors": ("#FFFFFF", "#43459C")
+        },
         "yiffstar": {
             "alias": "Yiffstar",
             "colors": ("#2771CF", "#FFFFFF")
