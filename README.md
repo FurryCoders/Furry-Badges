@@ -34,6 +34,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
 | `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)            |
 | `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)              |
+| `wikifur`      | [![](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)            |
 | `yiffstar`     | [![](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo)](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo)          |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
@@ -90,6 +91,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
   to [So Furry](https://sofurry.com) (converted to SVG format).
 * [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
   to [Weasyl](https://weasyl.com).
+* [WikiFur logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/wikifur.svg) belongs
+  to [WikiFur](https://wikifur.com/).
 * [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs
   to the defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
 
