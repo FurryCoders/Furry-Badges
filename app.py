@@ -37,6 +37,10 @@ data: dict = {
             "alias": "Buzzly",
             "colors": ("#EE9B00", "#79340E")
         },
+        "deviantart": {
+            "alias": "DeviantArt",
+            "colors": ("#475C4D", "#00E59B")
+        },
         "e621": {
             "colors": ("#FDBE2F", "#00549E")
         },
