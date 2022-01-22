@@ -25,15 +25,15 @@ value. To disable the label entirely whilst keeping the logo, use `?label=+` as 
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
-| Site           | Logo                                                                                                                                                    |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/furry/Logo)](https://furry-badges.herokuapp.com/badge/user/furry/Logo)                               |
-| `buzzly`       | [![](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)                             |
-| `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                                 |
-| `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)                   |
-| `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/FurryNetwork/Logo/Furry%20Network)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
-| `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)                           |
-| `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)                             |
+| Site           | Logo                                                                                                                                     |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/furry/Logo)](https://furry-badges.herokuapp.com/badge/user/furry/Logo)                |
+| `buzzly`       | [![](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)              |
+| `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                  |
+| `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)    |
+| `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
+| `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)            |
+| `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)              |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
 
