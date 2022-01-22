@@ -79,17 +79,17 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
 ## Credits
 
 * [Buzzly logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/buzzly.svg) belongs
-  to [buzzly](https://buzzly.art)
+  to [buzzly](https://buzzly.art).
 * [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) belongs
-  to [e621](https://e621.net)
+  to [e621](https://e621.net).
 * [Fur Affinity logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furaffinity.svg) belongs
-  to [Fur Affinity](https://furaffinity.net)
+  to [Fur Affinity](https://furaffinity.net).
 * [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) belongs
-  to [Furry Network](https://furrynetwork.com)
+  to [Furry Network](https://furrynetwork.com).
 * [So Furry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
-  to [So Furry](https://sofurry.com) (converted to SVG format)
+  to [So Furry](https://sofurry.com) (converted to SVG format).
 * [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
-  to [Weasyl](https://weasyl.com)
+  to [Weasyl](https://weasyl.com).
 * [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs
   to the defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
 
