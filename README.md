@@ -29,6 +29,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
 | `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/furry/Logo)                |
 | `buzzly`       | [![](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)              |
+| `deviantart`   | [![](https://furry-badges.herokuapp.com/badge/user/deviantart/Logo)](https://furry-badges.herokuapp.com/badge/user/deviantart/Logo)      |
 | `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                  |
 | `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)    |
 | `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
@@ -82,6 +83,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
 
 * [Buzzly logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/buzzly.svg) belongs
   to [buzzly](https://buzzly.art).
+* [DeviantArt logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/deviantart.svg) belongs
+  to [DeviantArt](https://deviantart.com).
 * [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) belongs
   to [e621](https://e621.net).
 * [Fur Affinity logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furaffinity.svg) belongs
