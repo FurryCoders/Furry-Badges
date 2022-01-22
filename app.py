@@ -52,6 +52,10 @@ data: dict = {
         "weasyl": {
             "alias": "Weasyl",
             "colors": ("#1D2224", "#990000")
+        },
+        "yiffstar": {
+            "alias": "Yiffstar",
+            "colors": ("#2771CF", "#FFFFFF")
         }
     },
     BadgeType.animal.name: {

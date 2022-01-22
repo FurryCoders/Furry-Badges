@@ -34,6 +34,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
 | `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)            |
 | `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)              |
+| `yiffstar`     | [![](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo)](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo)          |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link.
 
