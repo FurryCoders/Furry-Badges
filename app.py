@@ -30,6 +30,10 @@ badge_template: dict[str, str | int] = {
 
 data: dict = {
     BadgeType.user.name: {
+        "buzzly": {
+            "alias": "Buzzly",
+            "colors": ("#EE9B00", "#79340E")
+        },
         "e621": {
             "colors": ("#FDBE2F", "#00549E")
         },
