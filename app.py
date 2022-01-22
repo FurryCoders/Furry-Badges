@@ -30,6 +30,9 @@ badge_template: dict[str, str | int] = {
 
 data: dict = {
     BadgeType.user.name: {
+        "furry": {
+            "alias": "Furry",
+        },
         "buzzly": {
             "alias": "Buzzly",
             "colors": ("#EE9B00", "#79340E")
@@ -59,6 +62,9 @@ data: dict = {
         }
     },
     BadgeType.animal.name: {
+        "furry": {
+            "alias": "Furry",
+        },
         "fox": {
             "alias": "Fox",
             "colors": ("#FFFFFF", "#DF701F")
@@ -118,7 +124,7 @@ def badge_endpoint(badge_type: BadgeType, site: str, username: str, label: str =
     site = site if not site.islower() or " " in site else data_.get("alias", site)
 
     badge_label: dict = {"label": label or site, "message": username}
-    badge_colors: dict = {"labelColor": data_["colors"][0], "color": data_["colors"][1]} if data_ else {}
+    badge_colors: dict = {"labelColor": data_["colors"][0], "color": data_["colors"][1]} if "colors" in data_ else {}
     badge_logo: dict = {"logoSvg": logos_[site_]} if site_ in logos_ else {}
 
     return badge_template | badge_label | badge_colors | badge_logo
