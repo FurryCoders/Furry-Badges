@@ -90,6 +90,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
   to [So Furry](https://sofurry.com) (converted to SVG format)
 * [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
   to [Weasyl](https://weasyl.com)
+* [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs
+  to the defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
 
 [Animal icons](https://github.com/FurryCoders/Furry-Badges/tree/main/static/icons) sourced
 from [SVG Repo](https://www.svgrepo.com/)
