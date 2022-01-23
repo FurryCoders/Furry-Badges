@@ -94,8 +94,8 @@ The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
   to [Fur Affinity](https://furaffinity.net).
 * [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) belongs
   to [Furry Network](https://furrynetwork.com).
-* [So Furry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
-  to [So Furry](https://sofurry.com) (converted to SVG format).
+* [SoFurry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
+  to [SoFurry](https://sofurry.com) (converted to SVG format).
 * [VCL logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/vcl.svg) belongs
   to [VCL](http://us.vclart.net/vcl/) (converted to SVG format).
 * [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
