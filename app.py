@@ -96,7 +96,10 @@ data: dict = {
         "bear": {
             "alias": "Bear",
             "colors": ("#D7B487", "#7C665D")
-        }
+        },
+        "horse": {
+            "alias": "Horse",
+            "colors": ("#E1A178", "#96695F")}
     }
 }
 
