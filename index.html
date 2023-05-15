@@ -235,10 +235,6 @@
     const colorLabel = document.querySelector("[name=\"badge-color-label\"][data-chosen=true]")?.value;
     const colorMessage = document.querySelector("[name=\"badge-color-message\"][data-chosen=true]")?.value;
     if (!type || !site) return;
-    if (label.toLowerCase().replace(/ /g, "") === site) {
-      site = label;
-      label = "";
-    }
     const url = new URL(`https://furry-badges.codingfoxden.dk/badge/svg/${type}/${site}/${encodeURIComponent(name)}/${encodeURIComponent(label)}`);
     if (colorLabel) url.searchParams.set("labelColor", colorLabel);
     if (colorMessage) url.searchParams.set("color", colorMessage);
