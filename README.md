@@ -6,7 +6,7 @@
 
 Create badges for furry websites with the [Shields.io](https://shields.io) API.
 
-Build your own badge online at [furry-badges.herokuapp.com](https://furry-badges.herokuapp.com)!
+Build your own badge online at [furry-badges.codingfoxden.dk](https://furry-badges.codingfoxden.dk)!
 
 Do you have suggestions on new logos and
 sites? [Open a logo request!](https://github.com/FurryCoders/Furry-Badges/issues/new?assignees=MatteoCampinoti94&labels=enhancement&template=logo-request.yml&title=%5BLogo+Request%5D%3A+)
@@ -15,29 +15,29 @@ sites? [Open a logo request!](https://github.com/FurryCoders/Furry-Badges/issues
 
 ## User Badge
 
-To create a user badge, use the `/badge/user/{site}/{username}` and `/badge/user/{site}/{username}/{label}` routes.
+To create a user badge, use the `/badge/svg/user/{site}/{username}` and `/badge/svg/user/{site}/{username}/{label}` routes.
 
-For example: `https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA`
--> [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)](https://furry-badges.herokuapp.com/badge/user/furaffinity/User/FA)
+For example: `https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA`
+-> [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA)](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA)
 
 The label can be specified either in the path, or using the `?label` query parameter. The latter will override the path
 value. To disable the label entirely whilst keeping the logo, use `?label=+` as query parameter.
 
 Colors and logos change depending on the site used. Logos and colors are provided for the following websites:
 
-| Site           | Logo                                                                                                                                     |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| `furry`        | [![](https://furry-badges.herokuapp.com/badge/user/Furry/Logo)](https://furry-badges.herokuapp.com/badge/user/furry/Logo)                |
-| `buzzly`       | [![](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)](https://furry-badges.herokuapp.com/badge/user/buzzly/Logo)              |
-| `deviantart`   | [![](https://furry-badges.herokuapp.com/badge/user/deviantart/Logo)](https://furry-badges.herokuapp.com/badge/user/deviantart/Logo)      |
-| `e621`         | [![](https://furry-badges.herokuapp.com/badge/user/e621/Logo)](https://furry-badges.herokuapp.com/badge/user/e621/Logo)                  |
-| `furaffinity`  | [![](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)](https://furry-badges.herokuapp.com/badge/user/furaffinity/Logo)    |
-| `furrynetwork` | [![](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo/)](https://furry-badges.herokuapp.com/badge/user/furrynetwork/Logo) |
-| `sofurry`      | [![](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)](https://furry-badges.herokuapp.com/badge/user/sofurry/Logo)            |
-| `vcl`          | [![](https://furry-badges.herokuapp.com/badge/user/vcl/Logo)](https://furry-badges.herokuapp.com/badge/user/vcl/Logo)                    |
-| `weasyl`       | [![](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)](https://furry-badges.herokuapp.com/badge/user/weasyl/Logo)              |
-| `wikifur`      | [![](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)](https://furry-badges.herokuapp.com/badge/user/wikifur/Logo)            |
-| `yiffstar`     | [![](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo/Yiffstar)](https://furry-badges.herokuapp.com/badge/user/yiffstar/Logo) |
+| Site           | Logo                                                                                                                                                 |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `furry`        | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/Furry/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/furry/Logo)                |
+| `buzzly`       | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/buzzly/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/buzzly/Logo)              |
+| `deviantart`   | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/deviantart/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/deviantart/Logo)      |
+| `e621`         | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/e621/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/e621/Logo)                  |
+| `furaffinity`  | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/Logo)    |
+| `furrynetwork` | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furrynetwork/Logo/)](https://furry-badges.codingfoxden.dk/badge/svg/user/furrynetwork/Logo) |
+| `sofurry`      | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/sofurry/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/sofurry/Logo)            |
+| `vcl`          | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/vcl/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/vcl/Logo)                    |
+| `weasyl`       | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/weasyl/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/weasyl/Logo)              |
+| `wikifur`      | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/wikifur/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/wikifur/Logo)            |
+| `yiffstar`     | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/yiffstar/Logo/Yiffstar)](https://furry-badges.codingfoxden.dk/badge/svg/user/yiffstar/Logo) |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the site used in the link if no
 other label is specified.
@@ -49,26 +49,26 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## Animal Badge
 
-To create an animal badge, use the `/badge/animal/{animal}/{username}` and `/badge/animal/{animal}/{username}/{label}`
+To create an animal badge, use the `/badge/svg/animal/{animal}/{username}` and `/badge/svg/animal/{animal}/{username}/{label}`
 routes.
 
-For example: `https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy`
--> [![](https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy)](https://furry-badges.herokuapp.com/badge/animal/fox/User/Foxy)
+For example: `https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/user/Foxy`
+-> [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/user/Foxy)](https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/user/Foxy)
 
 The label can be specified either in the path, or using the `?label` query parameter. The latter will override the path
 value. To disable the label entirely whilst keeping the logo, use `?label=+` as query parameter.
 
 Colors and logos change depending on the animal used. Logos and colors are provided for the following websites:
 
-| Animal   | Logo                                                                                                                            |
-|:---------|:--------------------------------------------------------------------------------------------------------------------------------|
-| `furry`  | [![](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)](https://furry-badges.herokuapp.com/badge/animal/Furry/Logo)   |
-| `bear`   | [![](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)](https://furry-badges.herokuapp.com/badge/animal/bear/Logo)     |
-| `dragon` | [![](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo)](https://furry-badges.herokuapp.com/badge/animal/dragon/Logo) |
-| `fox`    | [![](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)](https://furry-badges.herokuapp.com/badge/animal/fox/Logo)       |
-| `horse`  | [![](https://furry-badges.herokuapp.com/badge/animal/horse/Logo)](https://furry-badges.herokuapp.com/badge/animal/horse/Logo)   |
-| `tiger`  | [![](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)](https://furry-badges.herokuapp.com/badge/animal/tiger/Logo)   |
-| `wolf`   | [![](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)](https://furry-badges.herokuapp.com/badge/animal/wolf/Logo)     |
+| Animal   | Logo                                                                                                                                        |
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------|
+| `furry`  | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/Furry/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/Furry/Logo)   |
+| `bear`   | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/bear/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/bear/Logo)     |
+| `dragon` | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/dragon/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/dragon/Logo) |
+| `fox`    | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/Logo)       |
+| `horse`  | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/horse/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/horse/Logo)   |
+| `tiger`  | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/tiger/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/tiger/Logo)   |
+| `wolf`   | [![](https://furry-badges.codingfoxden.dk/badge/svg/animal/wolf/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/animal/wolf/Logo)     |
 
 _Note_: logos are matched case-insensitively, but the label on the badge will respect the animal used in the link if no
 other label is specified.
@@ -80,7 +80,7 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## JSON Endpoint
 
-The `/badge/endpoint/` route is used as endpoint for the Shields.io API.
+The `/badge/json/` route is used as endpoint for the Shields.io API and uses the following format: `/badge/json/{user|animal}/{label}/{name}/{label}`
 
 ## Credits
 
