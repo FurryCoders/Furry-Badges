@@ -98,30 +98,27 @@ const DATA = [
 
 function badge_parameters($type, $site, $name, $label): ?array
 {
-    $type = urldecode($type);
-    $site = urldecode($site);
+    $type = strtolower(urldecode($type));
+    $site = strtolower(urldecode($site));
     $name = urldecode($name);
     $label = urldecode($label);
-    $site_name = str_ireplace(" ", "", strtolower($site));
 
     if (!isset(DATA[$type])) return null;
-    elseif (!isset(DATA[$type][$site_name])) return null;
-
-    $site = $site == $site_name ? DATA[$type][$site_name]["alias"] : $site;
+    elseif (!isset(DATA[$type][$site])) return null;
 
     $parameters = [
         "schemaVersion" => 1,
-        "label" => $label ?: $site,
+        "label" => $label ?: DATA[$type][$site]["alias"],
         "message" => $name,
     ];
 
-    if (isset(DATA[$type][$site_name]["colors"])) {
-        $parameters["labelColor"] = DATA[$type][$site_name]["colors"][0];
-        $parameters["color"] = DATA[$type][$site_name]["colors"][1];
+    if (isset(DATA[$type][$site]["colors"])) {
+        $parameters["labelColor"] = DATA[$type][$site]["colors"][0];
+        $parameters["color"] = DATA[$type][$site]["colors"][1];
     }
 
-    if (file_exists(__DIR__ . "/static/icons/" . DATA[$type][$site_name]["icon"])) {
-        $parameters["logoSvg"] = file_get_contents(__DIR__ . "/static/icons/" . DATA[$type][$site_name]["icon"]);
+    if (file_exists(__DIR__ . "/static/icons/" . DATA[$type][$site]["icon"])) {
+        $parameters["logoSvg"] = file_get_contents(__DIR__ . "/static/icons/" . DATA[$type][$site]["icon"]);
     }
 
     return $parameters;
