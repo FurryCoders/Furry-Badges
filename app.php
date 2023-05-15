@@ -155,7 +155,11 @@ function badge_svg()
     $query_string = parse_url($_SERVER["REQUEST_URI"], PHP_URL_QUERY);
     preg_match("/^\/badge\/svg\/([^\/]+)\/([^\/]+)\/([^\/]+)(?:\/([^\/]+))?\/?$/", $url, $matches);
 
-    if (!isset($matches[0]) || !isset(DATA[urldecode($matches[1])]) || !isset(DATA[urldecode($matches[1])][urldecode($matches[2])])) {
+    if (
+        !isset($matches[0]) ||
+        !isset(DATA[urldecode($matches[1])]) ||
+        !isset(DATA[urldecode($matches[1])][str_ireplace(" ", "", strtolower(urldecode($matches[2])))])
+    ) {
         die(404);
     } else {
         $endpoint = (isset($_SERVER['HTTPS']) ? "https" : "http") .
