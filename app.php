@@ -154,8 +154,8 @@ function badge_svg()
 
     if (
         !isset($matches[0]) ||
-        !isset(DATA[urldecode($matches[1])]) ||
-        !isset(DATA[urldecode($matches[1])][str_ireplace(" ", "", strtolower(urldecode($matches[2])))])
+        !isset(DATA[strtolower(urldecode($matches[1]))]) ||
+        !isset(DATA[strtolower(urldecode($matches[1]))][strtolower(urldecode($matches[2]))])
     ) {
         die(404);
     } else {
