@@ -6,9 +6,8 @@ import requests
 from fastapi import FastAPI
 from fastapi import Request
 from fastapi.responses import ORJSONResponse
-from fastapi.responses import Response
+from fastapi.responses import Response, HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 
 
 class BadgeType(Enum):
@@ -17,10 +16,8 @@ class BadgeType(Enum):
 
 
 root_folder: Path = Path(__file__).parent
-logos_folder: Path = root_folder / "static" / "logos"
 icons_folder: Path = root_folder / "static" / "icons"
 assets_folder: Path = root_folder / "static" / "assets"
-templates: Jinja2Templates = Jinja2Templates(str(root_folder))
 
 badge_template: dict[str, str | int] = {
     "schemaVersion": 1,
@@ -103,7 +100,6 @@ data: dict = {
     }
 }
 
-logos: dict[str, str] = {p.name.removesuffix(".svg"): p.read_text() for p in logos_folder.iterdir()}
 icons: dict[str, str] = {p.name.removesuffix(".svg"): p.read_text() for p in icons_folder.iterdir()}
 
 app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
@@ -113,10 +109,9 @@ app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
 app.add_route("/", lambda r: templates.TemplateResponse(
     "index.html",
     {"request": r,
-     "sites": sorted(set(logos.keys()).union(data[BadgeType.user.name].keys())),
+     "sites": sorted(set(icons.keys()).union(data[BadgeType.user.name].keys())),
      "animals": sorted(set(icons.keys()).union(data[BadgeType.animal.name].keys()))}))
 app.mount("/assets", StaticFiles(directory=assets_folder), "assets")
-app.mount("/logos", StaticFiles(directory=logos_folder), "logos")
 app.mount("/icons", StaticFiles(directory=icons_folder), "icons")
 
 
@@ -134,13 +129,12 @@ def get_badge(endpoint: str, **params) -> Response:
 @app.get("/badge/endpoint/{badge_type}/{site}/{username}/{label}/", response_class=ORJSONResponse)
 def badge_endpoint(badge_type: BadgeType, site: str, username: str, label: str = None):
     site_: str = site.lower().replace(" ", "")
-    logos_: dict[str, str] = logos if badge_type == BadgeType.user else icons
     data_: dict = data[badge_type.name].get(site_, {})
     site = site if not site.islower() or " " in site else data_.get("alias", site)
 
     badge_label: dict = {"label": label or site, "message": username}
     badge_colors: dict = {"labelColor": data_["colors"][0], "color": data_["colors"][1]} if "colors" in data_ else {}
-    badge_logo: dict = {"logoSvg": logos_[site_]} if site_ in logos_ else {}
+    badge_logo: dict = {"logoSvg": icons[site_]} if site_ in icons else {}
 
     return badge_template | badge_label | badge_colors | badge_logo
 
