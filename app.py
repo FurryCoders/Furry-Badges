@@ -49,6 +49,10 @@ data: dict = {
             "alias": "Furry Network",
             "colors": ("#FFFFFF", "#2E76B4")
         },
+        "itaku": {
+            "alias": "Itaku",
+            "colors": ("#FFEB3B", "#303030")
+        },
         "sofurry": {
             "alias": "SoFurry",
             "colors": ("#543D3B", "#C05D00")

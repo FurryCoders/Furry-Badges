@@ -31,6 +31,11 @@ const DATA = [
             "colors" => ["#FFFFFF", "#2E76B4"],
             "icon" => "furrynetwork.svg"
         ],
+        "itaku" => [
+            "alias" => "Itaku",
+            "colors" => ["#FFEB3B", "#303030"],
+            "icon" => "itaku.svg"
+        ],
         "sofurry" => [
             "alias" => "SoFurry",
             "colors" => ["#543D3B", "#C05D00"],

@@ -34,6 +34,7 @@ Colors and logos change depending on the site used. Logos and colors are provide
 | `e621`         | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/e621/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/e621/Logo)                  |
 | `furaffinity`  | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/Logo)    |
 | `furrynetwork` | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furrynetwork/Logo/)](https://furry-badges.codingfoxden.dk/badge/svg/user/furrynetwork/Logo) |
+| `itaku`        | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/itaku/Logo/)](https://furry-badges.codingfoxden.dk/badge/svg/user/itaku/Logo)               |
 | `sofurry`      | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/sofurry/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/sofurry/Logo)            |
 | `vcl`          | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/vcl/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/vcl/Logo)                    |
 | `weasyl`       | [![](https://furry-badges.codingfoxden.dk/badge/svg/user/weasyl/Logo)](https://furry-badges.codingfoxden.dk/badge/svg/user/weasyl/Logo)              |
@@ -97,6 +98,8 @@ format: `/badge/json/{user|animal}/{site}/{name}/{label}`
   to [Fur Affinity](https://furaffinity.net).
 * [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) belongs
   to [Furry Network](https://furrynetwork.com).
+* [Itaku logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/itaku.svg) belongs
+  to [Itaku](https://itaku.ee).
 * [SoFurry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
   to [SoFurry](https://sofurry.com) (converted to SVG format).
 * [VCL logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/vcl.svg) belongs
