@@ -237,13 +237,12 @@
     document.getElementById("badge").src = url.href;
   };
   const copyBadgeURL = (lang) => {
-    let text = "";
-    if (lang === "url") text = document.getElementById("badge").src;
-    else if (lang === "html") text = `<img src="${document.getElementById("badge").src}" alt="Furry badge"/>`;
-    else if (lang === "markdown") text = `![](${document.getElementById("badge").src})`;
-    else if (lang === "asciidoc") text = `image::${document.getElementById("badge").src}[]`;
-    else if (lang === "restructuredtext") text = `.. image:: ${document.getElementById("badge").src}`;
-    if (text) void navigator.clipboard.writeText(text);
+    let url = document.getElementById("badge").src;
+    if (lang === "html") url = `<img src="${url}" alt="Furry badge"/>`;
+    else if (lang === "markdown") url = `![](${url})`;
+    else if (lang === "asciidoc") url = `image::${url}[]`;
+    else if (lang === "restructuredtext") url = `.. image:: ${url}`;
+    if (url) void navigator.clipboard.writeText(url);
   };
 
   document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length));
