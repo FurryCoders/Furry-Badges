@@ -54,8 +54,17 @@
             color: inherit !important;
         }
 
+        .form-floating label::after {
+            background: none !important;
+        }
+
         input:invalid {
             border-color: var(--bs-danger)
+        }
+
+        input[type=color]:not([data-chosen=true]) {
+            filter: saturate(0);
+            opacity: .5;
         }
 
         [data-select-target]:not([data-selected=true]) {
@@ -76,10 +85,10 @@
         }
     </style>
     <script>
-        window.onload = () => {
-            document.body.dataset.bsTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-            window.matchMedia("(prefers-color-scheme: dark)").onchange = ({matches}) => document.body.dataset.bsTheme = matches ? "dark" : "light"
-        }
+      window.onload = () => {
+        document.body.dataset.bsTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        window.matchMedia("(prefers-color-scheme: dark)").onchange = ({matches}) => document.body.dataset.bsTheme = matches ? "dark" : "light";
+      };
     </script>
 </head>
 <body class="container">
@@ -168,6 +177,18 @@
                 <input type="text" class="form-control" name="badge-name" placeholder="Name" oninput="updateBadge()">
                 <label>Name</label>
             </div>
+
+            <div class="form-floating mt-3">
+                <input type="color" class="form-control form-control-color w-100" name="badge-color-label"
+                       oninput="this.dataset.chosen = 'true'; updateBadge()" data-random-selection>
+                <label>Label Color</label>
+            </div>
+
+            <div class="form-floating mt-3">
+                <input type="color" class="form-control form-control-color w-100" name="badge-color-message"
+                       oninput="this.dataset.chosen = 'true'; updateBadge()" data-random-selection>
+                <label>Name Color</label>
+            </div>
         </div>
 
         <div class="text-center mt-5">
@@ -192,45 +213,51 @@
 </div>
 
 <script>
-    const selectType = (id) => {
-        document.getElementById(id).dataset.selected = "true"
-        document.querySelectorAll(`[data-select-target]:not(#${id})`).forEach((e) => e.dataset.selected = "false")
-        document.querySelectorAll(`[data-select-id]:not([data-select-id="${id}"])`).forEach((e) => {
-            e.classList.remove(...e.dataset.classSelected.split(" "))
-            e.classList.add(...e.dataset.classNotSelected.split(" "))
-        })
-        document.querySelectorAll(`[data-select-id="${id}"]`).forEach((e) => {
-            e.classList.remove(...e.dataset.classNotSelected.split(" "))
-            e.classList.add(...e.dataset.classSelected.split(" "))
-        })
-        updateBadge()
+  const selectType = (id) => {
+    document.getElementById(id).dataset.selected = "true";
+    document.querySelectorAll(`[data-select-target]:not(#${id})`).forEach((e) => e.dataset.selected = "false");
+    document.querySelectorAll(`[data-select-id]:not([data-select-id="${id}"])`).forEach((e) => {
+      e.classList.remove(...e.dataset.classSelected.split(" "));
+      e.classList.add(...e.dataset.classNotSelected.split(" "));
+    });
+    document.querySelectorAll(`[data-select-id="${id}"]`).forEach((e) => {
+      e.classList.remove(...e.dataset.classNotSelected.split(" "));
+      e.classList.add(...e.dataset.classSelected.split(" "));
+    });
+    updateBadge();
+  };
+  const changeColorTheme = (dark) => document.body.dataset.bsTheme = dark ? "dark" : "light";
+  const updateBadge = () => {
+    const type = document.querySelector("[data-selected=true]")?.id;
+    let site = document.querySelector("[data-selected=true] [name=\"badge-site\"]")?.value;
+    let name = document.querySelector("[name=\"badge-name\"]")?.value;
+    let label = document.querySelector("[name=\"badge-label\"]")?.value;
+    const colorLabel = document.querySelector("[name=\"badge-color-label\"][data-chosen=true]")?.value;
+    const colorMessage = document.querySelector("[name=\"badge-color-message\"][data-chosen=true]")?.value;
+    if (!type || !site) return;
+    if (!name && !label) name = "Furry badges!";
+    if (label.toLowerCase().replace(/ /g, "") === site) {
+      site = label;
+      label = "";
     }
-    const changeColorTheme = (dark) => document.body.dataset.bsTheme = dark ? "dark" : "light"
-    const updateBadge = () => {
-        const type = document.querySelector('[data-selected=true]')?.id
-        let site = document.querySelector('[data-selected=true] [name="badge-site"]')?.value
-        let name = document.querySelector('[name="badge-name"]')?.value
-        let label = document.querySelector('[name="badge-label"]')?.value
-        if (!type || !site) return
-        if (!name && !label) name = "Furry badges!"
-        if (label.toLowerCase().replace(/ /g, "") === site) {
-            site = label
-            label = ""
-        }
-        document.getElementById("badge").src = `https://furry-badges.codingfoxden.dk/badge/svg/${type}/${site}/${encodeURIComponent(name)}/${encodeURIComponent(label)}`
-    }
-    const copyBadgeURL = (lang) => {
-        let text = "";
-        if (lang === "url") text = document.getElementById('badge').src
-        else if (lang === "html") text = `<img src="${document.getElementById('badge').src}" alt="Furry badge"/>`
-        else if (lang === "markdown") text = `![](${document.getElementById('badge').src})`
-        else if (lang === "asciidoc") text = `image::${document.getElementById('badge').src}[]`
-        else if (lang === "restructuredtext") text = `.. image:: ${document.getElementById('badge').src}`
-        if (text) void navigator.clipboard.writeText(text)
-    }
+    const url = new URL(`https://furry-badges.codingfoxden.dk/badge/svg/${type}/${site}/${encodeURIComponent(name)}/${encodeURIComponent(label)}`);
+    if (colorLabel) url.searchParams.set("labelColor", colorLabel);
+    if (colorMessage) url.searchParams.set("color", colorMessage);
+    document.getElementById("badge").src = url.href;
+  };
+  const copyBadgeURL = (lang) => {
+    let text = "";
+    if (lang === "url") text = document.getElementById("badge").src;
+    else if (lang === "html") text = `<img src="${document.getElementById("badge").src}" alt="Furry badge"/>`;
+    else if (lang === "markdown") text = `![](${document.getElementById("badge").src})`;
+    else if (lang === "asciidoc") text = `image::${document.getElementById("badge").src}[]`;
+    else if (lang === "restructuredtext") text = `.. image:: ${document.getElementById("badge").src}`;
+    if (text) void navigator.clipboard.writeText(text);
+  };
 
-    document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length))
-    updateBadge()
+  document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length));
+  document.querySelectorAll("input[type=color][data-random-selection]").forEach((e) => (e.value = `#${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}`));
+  updateBadge();
 </script>
 </body>
 </html>
