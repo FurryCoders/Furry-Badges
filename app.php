@@ -156,7 +156,7 @@ function badge_svg()
     preg_match("/^\/badge\/svg\/([^\/]+)\/([^\/]+)\/([^\/]+)(?:\/([^\/]+))?\/?$/", $url, $matches);
 
     if (!isset($matches[0]) || !isset(DATA[urldecode($matches[1])])) {
-        header("Status: 404 Not Found", true, 404);
+        die(404);
     } else {
         $endpoint = (isset($_SERVER['HTTPS']) ? "https" : "http") .
             "://$_SERVER[HTTP_HOST]" .
@@ -168,7 +168,7 @@ function badge_svg()
             header("Content-Type: image/svg+xml");
             echo($response);
         } else {
-            header("Status: 404 Not Found", true, 404);
+            die(404);
         }
     }
 }
@@ -179,12 +179,12 @@ if ($_SERVER["REQUEST_URI"] == "/") {
 } elseif ($_SERVER["REQUEST_URI"] == "/" . basename(__FILE__)) {
     header("Location: " . (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]", true, 301);
 } elseif (strpos($_SERVER["REQUEST_URI"], "/static") === 0) {
-    header("Status: 404 Not Found", true, 404);
+    die(404);
 } elseif (strpos($_SERVER["REQUEST_URI"], "/badge/json/") === 0) {
     badge_json();
 } elseif (strpos($_SERVER["REQUEST_URI"], "/badge/svg/") === 0) {
     badge_svg();
 } else {
     echo "PAGE NOT FOUND";
-    header("Status: 404 Not Found", true, 404);
+    die(404);
 }
