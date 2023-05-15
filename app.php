@@ -185,6 +185,5 @@ if ($_SERVER["REQUEST_URI"] == "/") {
 } elseif (strpos($_SERVER["REQUEST_URI"], "/badge/svg/") === 0) {
     badge_svg();
 } else {
-    echo "PAGE NOT FOUND";
-    die(404);
+    header("Location: " . (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]", true, 301);
 }
