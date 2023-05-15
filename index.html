@@ -230,12 +230,11 @@
   const updateBadge = () => {
     const type = document.querySelector("[data-selected=true]")?.id;
     let site = document.querySelector("[data-selected=true] [name=\"badge-site\"]")?.value;
-    let name = document.querySelector("[name=\"badge-name\"]")?.value;
+    let name = document.querySelector("[name=\"badge-name\"]")?.value || "Furry Badges!";
     let label = document.querySelector("[name=\"badge-label\"]")?.value;
     const colorLabel = document.querySelector("[name=\"badge-color-label\"][data-chosen=true]")?.value;
     const colorMessage = document.querySelector("[name=\"badge-color-message\"][data-chosen=true]")?.value;
     if (!type || !site) return;
-    if (!name && !label) name = "Furry badges!";
     if (label.toLowerCase().replace(/ /g, "") === site) {
       site = label;
       label = "";
