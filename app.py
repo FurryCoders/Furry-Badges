@@ -106,11 +106,6 @@ app: FastAPI = FastAPI(servers=[{"url": "https://furry-badges.herokuapp.com"}],
                        license_info={"name": "European Union Public Licence v. 1.2", "url": "https://eupl.eu/1.2/en"},
                        docs_url=None, redoc_url=None)
 
-app.add_route("/", lambda r: templates.TemplateResponse(
-    "index.html",
-    {"request": r,
-     "sites": sorted(set(icons.keys()).union(data[BadgeType.user.name].keys())),
-     "animals": sorted(set(icons.keys()).union(data[BadgeType.animal.name].keys()))}))
 app.mount("/assets", StaticFiles(directory=assets_folder), "assets")
 app.mount("/icons", StaticFiles(directory=icons_folder), "icons")
 
@@ -123,6 +118,11 @@ def get_badge(endpoint: str, **params) -> Response:
         res.status_code,
         media_type=res.headers.get("Content-Type", None)
     )
+
+
+@app.get("/", response_class=HTMLResponse)
+def index():
+    return HTMLResponse(root_folder.joinpath("index.html").read_text())
 
 
 @app.get("/badge/endpoint/{badge_type}/{site}/{username}/", response_class=ORJSONResponse)
