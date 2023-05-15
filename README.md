@@ -15,7 +15,8 @@ sites? [Open a logo request!](https://github.com/FurryCoders/Furry-Badges/issues
 
 ## User Badge
 
-To create a user badge, use the `/badge/svg/user/{site}/{username}` and `/badge/svg/user/{site}/{username}/{label}` routes.
+To create a user badge, use the `/badge/svg/user/{site}/{username}` and `/badge/svg/user/{site}/{username}/{label}`
+routes.
 
 For example: `https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA`
 -> [![](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA)](https://furry-badges.codingfoxden.dk/badge/svg/user/furaffinity/user/FA)
@@ -49,7 +50,8 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## Animal Badge
 
-To create an animal badge, use the `/badge/svg/animal/{animal}/{username}` and `/badge/svg/animal/{animal}/{username}/{label}`
+To create an animal badge, use the `/badge/svg/animal/{animal}/{username}`
+and `/badge/svg/animal/{animal}/{username}/{label}`
 routes.
 
 For example: `https://furry-badges.codingfoxden.dk/badge/svg/animal/fox/user/Foxy`
@@ -80,7 +82,8 @@ The badge can be embedded in Markdown, reStructuredText, AsciiDoc, HTML, etc. li
 
 ## JSON Endpoint
 
-The `/badge/json/` route is used as endpoint for the Shields.io API and uses the following format: `/badge/json/{user|animal}/{label}/{name}/{label}`
+The `/badge/json/` route is used as endpoint for the Shields.io API and uses the following
+format: `/badge/json/{user|animal}/{site}/{name}/{label}`
 
 ## Credits
 
