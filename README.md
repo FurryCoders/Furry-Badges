@@ -88,27 +88,27 @@ format: `/badge/json/{user|animal}/{site}/{name}/{label}`
 
 ## Credits
 
-* [Buzzly logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/buzzly.svg) belongs
+* [Buzzly logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/buzzly.svg) belongs
   to [Buzzly.art](https://buzzly.art).
-* [DeviantArt logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/deviantart.svg) belongs
+* [DeviantArt logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/deviantart.svg) belongs
   to [DeviantArt](https://deviantart.com).
-* [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/e621.svg) belongs
+* [e621 logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/e621.svg) belongs
   to [e621](https://e621.net).
-* [Fur Affinity logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furaffinity.svg) belongs
+* [Fur Affinity logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/furaffinity.svg) belongs
   to [Fur Affinity](https://furaffinity.net).
-* [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/furrynetwork.svg) belongs
+* [Furry Network logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/furrynetwork.svg) belongs
   to [Furry Network](https://furrynetwork.com).
-* [Itaku logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/itaku.svg) belongs
+* [Itaku logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/itaku.svg) belongs
   to [Itaku](https://itaku.ee).
-* [SoFurry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/sofurry.svg) belongs
+* [SoFurry logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/sofurry.svg) belongs
   to [SoFurry](https://sofurry.com) (converted to SVG format).
-* [VCL logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/vcl.svg) belongs
+* [VCL logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/vcl.svg) belongs
   to [VCL](http://us.vclart.net/vcl/) (converted to SVG format).
-* [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/weasyl.svg) belongs
+* [Weasyl logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/weasyl.svg) belongs
   to [Weasyl](https://weasyl.com).
-* [WikiFur logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/wikifur.svg) belongs
+* [WikiFur logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/wikifur.svg) belongs
   to [WikiFur](https://wikifur.com/) (converted to SVG format).
-* [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/logos/yiffstar.svg) belongs to the
+* [Yiffstar logo](https://github.com/FurryCoders/furry-badges/blob/main/static/icons/yiffstar.svg) belongs to the
   defunct Yiffstar, logo sourced from [WikiFur - Yiffstar](https://en.wikifur.com/wiki/Yiffstar).
 
 [Animal icons](https://github.com/FurryCoders/Furry-Badges/tree/main/static/icons) sourced
