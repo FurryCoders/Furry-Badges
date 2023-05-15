@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--suppress HtmlUnknownTarget,HtmlFormInputWithoutLabel -->
+<!--suppress HtmlFormInputWithoutLabel -->
 <html lang="en">
 <head>
     <title>Furry Badges</title>
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Badges for furry websites!">
     <!-- meta og -->
-    <meta property="og:title" content="Furry Badges"/>
+    <meta property="og:title" content="FB"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://furry-badges.herokuapp.com"/>
     <meta property="og:image" content="https://furry-badges.herokuapp.com/assets/logo.png"/>
@@ -26,183 +26,211 @@
     <link href="/assets/touch-icon.png" rel="icon">
     <link href="/assets/touch-icon.png" rel="apple-touch-icon">
     <link href="/assets/touch-icon.png" rel="apple-touch-icon-precomposed">
-    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet" type="text/css"/>
-    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
-    <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
     <style>
         body {
-            font-family: Rubik, -apple-system, sans-serif;
+            padding: 1rem 0 2rem 0;
+            transition: background 150ms;
         }
 
-        select:disabled, label:disabled {
+        body:not([data-bs-theme]) {
+            display: none !important;
+        }
+
+        [data-bs-theme="light"] .hide-light,
+        [data-bs-theme="dark"] .hide-dark {
+            display: none !important;
+        }
+
+        .bg-hover-none:not(:hover) {
+            background: none !important;
+        }
+
+        .btn.color-inherit:not(:hover) {
+            color: inherit !important;
+        }
+
+        input:invalid {
+            border-color: var(--bs-danger)
+        }
+
+        [data-select-target]:not([data-selected=true]) {
             display: none;
         }
 
-        #colorPickers * {
+        #badge-link[href=""],
+        #badge-link[href=""] ~ #badge-link-copy {
+            display: none !important;
+        }
+
+        #badge {
+            user-select: none;
+        }
+
+        .dropdown-item {
             cursor: pointer;
         }
-
-        .footer {
-            width: 100%;
-            text-align: center;
-        }
-
-        @media only screen and (min-height: 700px) {
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                height: 30px;
-                width: 100%;
-                text-align: center;
-            }
-        }
     </style>
+    <script>
+        window.onload = () => {
+            document.body.dataset.bsTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+            window.matchMedia("(prefers-color-scheme: dark)").onchange = ({matches}) => document.body.dataset.bsTheme = matches ? "dark" : "light"
+        }
+    </script>
 </head>
-<body>
-{% set animals_ = ["Wolf", "Fox", "Bear", "Dog", "Dragon", "Otter", "Tiger", "Cat"] %}
-{% set placeholder_animal = animals_[range(0, animals | length) | random] %}
-<div style="max-width: 600px; margin: auto">
-    <div style="margin: 20px">
+<body class="container">
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto position-relative">
+        <div class="position-absolute top-0" style="right: calc(var(--bs-gutter-x) * .5)">
+            <button class="btn btn-sm btn-warning bg-hover-none color-inherit shadow-sm border-0 rounded-circle hide-dark p-0"
+                    style="width: 32px; height: 32px" onclick="changeColorTheme(true)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     viewBox="0 0 16 16" style="margin-bottom: 1px">
+                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                </svg>
+            </button>
+
+            <button class="btn btn-sm btn-light bg-hover-none color-inherit shadow-sm border-0 rounded-circle hide-light p-0"
+                    style="width: 32px; height: 32px" onclick="changeColorTheme(false)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     viewBox="0 0 16 16" style="margin-bottom: 1px">
+                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+                </svg>
+            </button>
+        </div>
+
+        <h2>Furry Badges</h2>
+
         <div id="badges">
             <a href="https://github.com/FurryCoders/furry-badges">
                 <img src="https://img.shields.io/badge/Source-GitHub-blue?logo=github" alt=""></a>
             <a href="https://github.com/FurryCoders/Furry-Badges/issues/new?labels=enhancement&template=logo-request.yml&title=%5BLogo+Request%5D%3A+">
-                <img src="https://img.shields.io/badge/Logo-Request-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNOC40NTYgMTQuNDk0YS43NS43NSAwIDAxMS4wNjguMTcgMy4wOCAzLjA4IDAgMDAuNTcyLjQ5MkEzLjM4MSAzLjM4MSAwIDAwMTIgMTUuNzJjLjg1NSAwIDEuNDg3LS4yODMgMS45MDQtLjU2MmEzLjA4MSAzLjA4MSAwIDAwLjU3Mi0uNDkybC4wMjEtLjAyNmEuNzUuNzUgMCAwMTEuMTk3LjkwNWwtLjAyNy4wMzRjLS4wMTMuMDE2LS4wMy4wMzgtLjA1Mi4wNjMtLjA0NC4wNS0uMTA1LjExOS0uMTg0LjE5OGE0LjU2OSA0LjU2OSAwIDAxLS42OTUuNTY2QTQuODggNC44OCAwIDAxMTIgMTcuMjJhNC44OCA0Ljg4IDAgMDEtMi43MzYtLjgxNCA0LjU3IDQuNTcgMCAwMS0uNjk1LS41NjYgMy4yNTMgMy4yNTMgMCAwMS0uMjM2LS4yNjFjLS4yNTktLjMzMi0uMjIzLS44MjQuMTIzLTEuMDg0eiI+PC9wYXRoPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyIDFDNS45MjUgMSAxIDUuOTI1IDEgMTJzNC45MjUgMTEgMTEgMTEgMTEtNC45MjUgMTEtMTFTMTguMDc1IDEgMTIgMXpNMi41IDEyYTkuNSA5LjUgMCAxMTE5IDAgOS41IDkuNSAwIDAxLTE5IDB6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTkgMTAuNzVhMS4yNSAxLjI1IDAgMTEtMi41IDAgMS4yNSAxLjI1IDAgMDEyLjUgMHpNMTYuMjUgMTJhMS4yNSAxLjI1IDAgMTAwLTIuNSAxLjI1IDEuMjUgMCAwMDAgMi41eiI+PC9wYXRoPjwvc3ZnPg==" alt=""></a>
+                <img src="https://img.shields.io/badge/Logo-Request-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNOC40NTYgMTQuNDk0YS43NS43NSAwIDAxMS4wNjguMTcgMy4wOCAzLjA4IDAgMDAuNTcyLjQ5MkEzLjM4MSAzLjM4MSAwIDAwMTIgMTUuNzJjLjg1NSAwIDEuNDg3LS4yODMgMS45MDQtLjU2MmEzLjA4MSAzLjA4MSAwIDAwLjU3Mi0uNDkybC4wMjEtLjAyNmEuNzUuNzUgMCAwMTEuMTk3LjkwNWwtLjAyNy4wMzRjLS4wMTMuMDE2LS4wMy4wMzgtLjA1Mi4wNjMtLjA0NC4wNS0uMTA1LjExOS0uMTg0LjE5OGE0LjU2OSA0LjU2OSAwIDAxLS42OTUuNTY2QTQuODggNC44OCAwIDAxMTIgMTcuMjJhNC44OCA0Ljg4IDAgMDEtMi43MzYtLjgxNCA0LjU3IDQuNTcgMCAwMS0uNjk1LS41NjYgMy4yNTMgMy4yNTMgMCAwMS0uMjM2LS4yNjFjLS4yNTktLjMzMi0uMjIzLS44MjQuMTIzLTEuMDg0eiI+PC9wYXRoPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyIDFDNS45MjUgMSAxIDUuOTI1IDEgMTJzNC45MjUgMTEgMTEgMTEgMTEtNC45MjUgMTEtMTFTMTguMDc1IDEgMTIgMXpNMi41IDEyYTkuNSA5LjUgMCAxMTE5IDAgOS41IDkuNSAwIDAxLTE5IDB6Ij48L3BhdGg+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTkgMTAuNzVhMS4yNSAxLjI1IDAgMTEtMi41IDAgMS4yNSAxLjI1IDAgMDEyLjUgMHpNMTYuMjUgMTJhMS4yNSAxLjI1IDAgMTAwLTIuNSAxLjI1IDEuMjUgMCAwMDAgMi41eiI+PC9wYXRoPjwvc3ZnPg=="
+                     alt="">
+            </a>
         </div>
-        <br>
-        <div class="mui--text-headline">Furry Badges</div>
-        <br>
-        <div class="mui--text-center mui--align-middle">
-            <button class="mui-btn"
-                    id="userButton"
-                    onclick="this.disabled = $('animalSelectContainer').hidden = $('animal').disabled = true; $('userSelectContainer').hidden = $('user').disabled = $('animalButton').disabled = false; updateBadge()"
-                    disabled>
-                User Badge
+
+        <div class="mt-5 text-center d-flex justify-content-center" style="column-gap: 2rem">
+            <button class="btn btn-primary shadow-sm border-0 fw-bold" style="width: 8rem"
+                    data-class-selected="btn-primary" data-class-not-selected="btn-outline-primary color-inherit"
+                    data-select-id="user" onclick="selectType(this.dataset.selectId)">
+                WEBSITES
             </button>
-            <button class="mui-btn"
-                    id="animalButton"
-                    onclick="this.disabled = $('userSelectContainer').hidden = $('user').disabled = true; $('animalSelectContainer').hidden = $('animal').disabled = $('userButton').disabled = false; updateBadge()">
-                Animal Badge
+
+            <button class="btn btn-outline-primary color-inherit shadow-sm border-0 fw-bold" style="width: 8rem"
+                    data-class-selected="btn-primary" data-class-not-selected="btn-outline-primary color-inherit"
+                    data-select-id="animal" onclick="selectType(this.dataset.selectId)">
+                ANIMALS
             </button>
         </div>
-        <div id="userBadge" class="mui-form">
-            <div id="userAnimalSelect">
-                <div id="userSelectContainer">
-                    <div class="mui-select">
-                        <select id="user" onchange="updateBadge()" required>
-                            <option value="furry">furry</option>
-                            {% for site in sites %}
-                                {% if site != "furry" %}
-                                    <option value="{{ site }}">{{ site }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                        <label for="user">Site</label>
-                    </div>
-                </div>
-                <div id="animalSelectContainer" hidden>
-                    <div class="mui-select">
-                        <select id="animal" onchange="updateBadge()" required disabled>
-                            <option value="furry">furry</option>
-                            {% for animal in animals %}
-                                {% if animal != "furry" %}
-                                    <option value="{{ animal }}">{{ animal }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                        <label for="animal">Animal</label>
-                    </div>
-                </div>
-            </div>
-            <div class="mui-textfield mui-textfield--float-label">
-                <input id="label" type="text" oninput="updateBadge()" value="">
-                <label for="label">Label</label>
-            </div>
-            <div class="mui-checkbox">
-                <label>
-                    <input type="checkbox" id="noLabel" value=""
-                           onclick="$('label').disabled = this.checked; updateBadge()">
-                    No label
-                </label>
-            </div>
-            <div class="mui-textfield mui-textfield--float-label">
-                <input id="username" type="text" oninput="updateBadge()"
-                       value="{{ placeholder_animal }}" required>
-                <label for="username">Username</label>
-            </div>
-            <div id="colorPickers" class="mui--text-center mui--align-middle">
-                <button id="labelColorButton" class="mui-btn" onclick="$('labelColor').click()">
-                    <input type="color" id="labelColor"
-                           style="opacity: 0; position: absolute; width: 100%; left: 0; margin: 0"
-                           data-changed=""
-                           onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
-                           value="">
-                    Label Color
-                </button>
-                <button id="messageColorButton" class="mui-btn" onclick="$('messageColor').click()">
-                    <input type="color" id="messageColor"
-                           style="opacity: 0; position: absolute; width: 100%; left: 0; margin: 0"
-                           data-changed=""
-                           onchange="this.dataset.changed = this.parentElement.style.backgroundColor = this.value + 'BB'; updateBadge()"
-                           value="">
-                    Message Color
-                </button>
-                <button class="mui-btn"
-                        onclick="const l = $('labelColor'), m = $('messageColor'); l.parentElement.style.backgroundColor = m.parentElement.style.backgroundColor = l.value = m.value = l.dataset.changed = m.dataset.changed = ''; updateBadge()">
-                    Reset Colors
-                </button>
-            </div>
-        </div>
-        <br><br>
-        <div id="badgeContainer" class="mui--text-center mui--align-middle"
-             style="cursor: pointer !important; min-height: 25px" hidden>
-            <a id="badgeURL" href="#"><img id="badge" src="#" alt=""></a>
-        </div>
-        <br><br>
-        <div id="copyMarkupContainer" hidden>
-            <div class="mui-select" style="max-width: 300px; margin: auto">
-                <select id="copyMarkup"
-                        onchange="navigator.clipboard.writeText(this.selectedOptions[0].onselect(null)); this.selectedIndex = 0">
-                    <option value="" disabled hidden selected>Copy URL & Markup</option>
-                    <option value="url" onselect="return $('badge').src">Badge URL</option>
-                    <option value="markdown" onselect="return `![](${$('badge').src})`">Markdown</option>
-                    <option value="asciidoc" onselect="return `image::${$('badge').src}[]`">AsciiDoc</option>
-                    <option value="restructuredtext" onselect="return `.. image:: ${$('badge').src}`">reStructuredText
-                    </option>
+
+        <div class="mt-5">
+            <div class="form-floating" data-select-target data-selected="true" id="user">
+                <select class="form-select" name="badge-site" onchange="updateBadge()" data-random-selection>
+                    <option value="furry">Furry</option>
+                    <option value="buzzly">Buzzly</option>
+                    <option value="deviantart">DeviantArt</option>
+                    <option value="e621">e621</option>
+                    <option value="furaffinity">Fur Affinity</option>
+                    <option value="furrynetwork">Furry Network</option>
+                    <option value="sofurry">SoFurry</option>
+                    <option value="vcl">VCL</option>
+                    <option value="weasyl">Weasyl</option>
+                    <option value="wikifur">WikiFur</option>
+                    <option value="yiffstar">Yiffstar</option>
                 </select>
-                <label for="copyMarkup"></label>
+                <label>Select Site</label>
+            </div>
+
+            <div class="form-floating" data-select-target data-selected="false" id="animal">
+                <select class="form-select" name="badge-site" onchange="updateBadge()" data-random-selection>
+                    <option value="furry">Furry</option>
+                    <option value="fox">Fox</option>
+                    <option value="tiger">Tiger</option>
+                    <option value="wolf">Wolf</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="bear">Bear</option>
+                    <option value="horse">Horse</option>
+                </select>
+                <label>Select Animal</label>
+            </div>
+
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" name="badge-label" placeholder="Label" oninput="updateBadge()">
+                <label>Label</label>
+            </div>
+
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" name="badge-name" placeholder="Name" oninput="updateBadge()">
+                <label>Name</label>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="" id="badge-link" target="_blank">
+                <img id="badge" src="" alt="" onload="this.parentElement.href = this.src">
+            </a>
+
+            <div class="dropdown-center mt-4" id="badge-link-copy">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    Copy Badge URL
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item" onclick="copyBadgeURL('url')">Badge URL</li>
+                    <li class="dropdown-item" onclick="copyBadgeURL('html')">HTML</li>
+                    <li class="dropdown-item" onclick="copyBadgeURL('markdown')">Markdown</li>
+                    <li class="dropdown-item" onclick="copyBadgeURL('asciidoc')">AsciiDoc</li>
+                    <li class="dropdown-item" onclick="copyBadgeURL('restructuredtext')">reStructuredText</li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="footer"><i>Style by <a href="https://www.muicss.com">Material Design CSS</a></i></div>
 </div>
+
 <script>
-    const root = "https://furry-badges.herokuapp.com" //window.location.origin
-    const $ = (id) => document.getElementById(id)
-    const updateBadge = () => {
-        const selector = document.querySelector("#userAnimalSelect div select:enabled")
-        const badgeType = selector.id
-        const badgeValue = selector.value
-        const label = $("label").value.trim()
-        const username = $("username").value.trim()
-        const labelColor = $("labelColor")
-        const color = $("messageColor")
-        const noLabel = $("noLabel").checked
-        let url
-        if (!badgeValue || !username) url = null
-        else {
-            const url_ = new URL(root)
-            url_.pathname = `/badge/${badgeType}/${badgeValue}/${encodeURIComponent(username)}/${encodeURIComponent(noLabel ? "" : label)}`
-            if (noLabel) url_.searchParams.set("label", "")
-            if (labelColor.dataset.changed !== '') url_.searchParams.set("labelColor", labelColor.value.replace(/^#/, ""))
-            if (color.dataset.changed !== '') url_.searchParams.set("color", color.value.replace(/^#/, ""))
-            url = url_.href
-        }
-        $("badge").src = $("badgeURL").href = !url ? "#" : url
-        $("badgeContainer").hidden = $("copyMarkupContainer").hidden = url === null
+    const selectType = (id) => {
+        document.getElementById(id).dataset.selected = "true"
+        document.querySelectorAll(`[data-select-target]:not(#${id})`).forEach((e) => e.dataset.selected = "false")
+        document.querySelectorAll(`[data-select-id]:not([data-select-id="${id}"])`).forEach((e) => {
+            e.classList.remove(...e.dataset.classSelected.split(" "))
+            e.classList.add(...e.dataset.classNotSelected.split(" "))
+        })
+        document.querySelectorAll(`[data-select-id="${id}"]`).forEach((e) => {
+            e.classList.remove(...e.dataset.classNotSelected.split(" "))
+            e.classList.add(...e.dataset.classSelected.split(" "))
+        })
+        updateBadge()
     }
-    window.onload = () => updateBadge()
+    const changeColorTheme = (dark) => document.body.dataset.bsTheme = dark ? "dark" : "light"
+    const updateBadge = () => {
+        const type = document.querySelector('[data-selected=true]')?.id
+        let site = document.querySelector('[data-selected=true] [name="badge-site"]')?.value
+        let name = document.querySelector('[name="badge-name"]')?.value
+        let label = document.querySelector('[name="badge-label"]')?.value
+        if (!type || !site) return
+        if (!name && !label) name = "Furry badges!"
+        if (label.toLowerCase().replace(/ /g, "") === site) {
+            site = label
+            label = ""
+        }
+        document.getElementById("badge").src = `https://furry-badges.codingfoxden.dk/badge/svg/${type}/${site}/${encodeURIComponent(name)}/${encodeURIComponent(label)}`
+    }
+    const copyBadgeURL = (lang) => {
+        let text = "";
+        if (lang === "url") text = document.getElementById('badge').src
+        else if (lang === "html") text = `<img src="${document.getElementById('badge').src}" alt="Furry badge"/>`
+        else if (lang === "markdown") text = `![](${document.getElementById('badge').src})`
+        else if (lang === "asciidoc") text = `image::${document.getElementById('badge').src}[]`
+        else if (lang === "restructuredtext") text = `.. image:: ${document.getElementById('badge').src}`
+        if (text) void navigator.clipboard.writeText(text)
+    }
+
+    document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length))
+    updateBadge()
 </script>
 </body>
 </html>
