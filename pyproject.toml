@@ -11,7 +11,6 @@ fastapi = "^0.95.1"
 requests = "^2.30.0"
 uvicorn = "^0.22.0"
 orjson = "^3.8.12"
-Jinja2 = "3.0.3"
 
 [tool.poetry.dev-dependencies]
 
