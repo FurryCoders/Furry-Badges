@@ -161,12 +161,14 @@
             </div>
 
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" name="badge-label" placeholder="Label" oninput="updateBadge()">
+                <input type="text" class="form-control" name="badge-label" placeholder="Label"
+                       oninput="this.value = this.value.trimEnd(); updateBadge()">
                 <label>Label</label>
             </div>
 
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" name="badge-name" placeholder="Name" oninput="updateBadge()">
+                <input type="text" class="form-control" name="badge-name" placeholder="Name"
+                       oninput="this.value = this.value.trimEnd(); updateBadge()">
                 <label>Name</label>
             </div>
 
