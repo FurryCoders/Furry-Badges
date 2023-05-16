@@ -81,12 +81,6 @@
             cursor: pointer;
         }
     </style>
-    <script>
-      window.onload = () => {
-        document.body.dataset.bsTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        window.matchMedia("(prefers-color-scheme: dark)").onchange = ({matches}) => document.body.dataset.bsTheme = matches ? "dark" : "light";
-      };
-    </script>
 </head>
 <body class="container">
 <div class="row">
@@ -245,13 +239,17 @@
     else if (lang === "markdown") url = `![](${url})`;
     else if (lang === "asciidoc") url = `image::${url}[]`;
     else if (lang === "restructuredtext") url = `.. image:: ${url}`;
-    else if (lang === "latex") url = `\\externalfigure[${url}]`
+    else if (lang === "latex") url = `\\externalfigure[${url}]`;
     if (url) void navigator.clipboard.writeText(url);
   };
 
-  document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length));
-  document.querySelectorAll("input[type=color][data-random-selection]").forEach((e) => (e.value = `#${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}`));
-  updateBadge();
+  window.onload = () => {
+    document.body.dataset.bsTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    window.matchMedia("(prefers-color-scheme: dark)").onchange = ({matches}) => document.body.dataset.bsTheme = matches ? "dark" : "light";
+    document.querySelectorAll("select[data-random-selection]").forEach((e) => e.selectedIndex = Math.floor(Math.random() * e.options.length));
+    document.querySelectorAll("input[type=color][data-random-selection]").forEach((e) => (e.value = `#${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}${Math.floor(Math.random() * 256).toString(16).padStart(2, "0")}`));
+    updateBadge();
+  };
 </script>
 </body>
 </html>
